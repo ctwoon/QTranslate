@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorErrorStateContent" format="color" />
+    <attr name="colorHairline" format="color" />
+    <attr name="colorOnPrimaryGoogle" format="color" />
+    <attr name="colorOnPrimaryStateLayerGoogle" format="color" />
+    <attr name="colorOnSecondaryStateContent" format="color" />
+    <attr name="colorOnSecondaryStateLayer" format="color" />
+    <attr name="colorOnSurfaceInverse" format="color" />
+    <attr name="colorOnSurfaceStateContent" format="color" />
+    <attr name="colorOnSurfaceStateLayer" format="color" />
+    <attr name="colorOnSurfaceVariant" format="color" />
+    <attr name="colorPrimaryGoogle" format="color" />
+    <attr name="colorPrimaryGoogleInverse" format="color" />
+    <attr name="colorPrimaryStateContentGoogle" format="color" />
+    <attr name="colorPrimaryStateContentGoogleInverse" format="color" />
+    <attr name="colorPrimaryStateLayerGoogleInverse" format="color" />
+    <attr name="colorPrimaryVariantGoogle" format="color" />
+    <attr name="colorSurfaceInverse" format="color" />
+    <attr name="colorTextFieldError" format="color" />
+    <attr name="colorTextFieldHairline" format="color" />
+    <attr name="colorTextFieldOnSurfaceVariant" format="color" />
+    <attr name="colorTextFieldPrimary" format="color" />
+    <attr name="colorTextFieldSurface" format="color" />
+    <attr name="colorTimePickerSurface" format="color" />
+    <attr name="floatingActionButtonBrandedStyle" format="reference" />
+    <attr name="extendedFloatingActionButtonBrandedStyle" format="reference" />
+    <attr name="textAppearanceDisplay1" format="reference" />
+    <attr name="textAppearanceDisplay2" format="reference" />
+    <attr name="textAppearanceDisplay3" format="reference" />
+    <attr name="textAppearanceSubhead1" format="reference" />
+    <attr name="textAppearanceSubhead2" format="reference"/>
+    <attr name="themeFontFamily" format="reference|string" />
+    <attr name="themeFontFamilyDisplay" format="reference|string" />
+    <attr name="themeFontFamilyMedium" format="reference|string"/>
+</resources>

@@ -1,16 +1,1295 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.QTranslate" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.TextAppearance.GoogleMaterial.Button" parent="@style/TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.017857142</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Base.TextAppearance.GoogleMaterial.OpenSearch" parent="@style/TextAppearance.GoogleMaterial.Headline6">
+        <item name="android:textSize">@dimen/google_opensearchbar_text_size</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textColorHint">?attr/colorOnSurfaceVariant</item>
+    </style>
+    <style name="Base.TextAppearance.GoogleMaterial.Overline" parent="@style/TextAppearance.MaterialComponents.Overline">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.07272727</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Base.TextAppearance.GoogleMaterial.Subtitle1" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.0125</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Base.TextAppearance.GoogleMaterial.Subtitle2" parent="@style/TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.017857142</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Base.Theme.GoogleMaterial.Dark" parent="@style/Base.V21.Theme.GoogleMaterial.Dark" />
+    <style name="Base.Theme.GoogleMaterial.Dark.BottomSheetDialog" parent="@style/Base.V21.Theme.GoogleMaterial.Dark.BottomSheetDialog" />
+    <style name="Base.Theme.GoogleMaterial.Dark.Bridge" parent="@style/Base.V14.Theme.GoogleMaterial.Dark.Bridge" />
+    <style name="Base.Theme.GoogleMaterial.Dark.Dialog" parent="@style/Base.V21.Theme.GoogleMaterial.Dark.Dialog" />
+    <style name="Base.Theme.GoogleMaterial.Light" parent="@style/Base.V23.Theme.GoogleMaterial.Light">
+        <item name="android:statusBarColor">@color/google_grey700</item>
+    </style>
+    <style name="Base.Theme.GoogleMaterial.Light.BottomSheetDialog" parent="@style/Base.V21.Theme.GoogleMaterial.Light.BottomSheetDialog" />
+    <style name="Base.Theme.GoogleMaterial.Light.Bridge" parent="@style/Base.V14.Theme.GoogleMaterial.Light.Bridge" />
+    <style name="Base.Theme.GoogleMaterial.Light.Dialog" parent="@style/Base.V21.Theme.GoogleMaterial.Light.Dialog" />
+
+    <style name="Base.ThemeOverlay.GoogleMaterial.BottomSheetDialog" parent="Base.V21.ThemeOverlay.GoogleMaterial.BottomSheetDialog" />
+    <style name="Base.ThemeOverlay.GoogleMaterial.Dialog" parent="@style/Base.V21.ThemeOverlay.GoogleMaterial.Dialog" />
+    <style name="Base.ThemeOverlay.GoogleMaterial.Dialog.Alert" parent="@style/Base.V14.ThemeOverlay.GoogleMaterial.Dialog.Alert" />
+    <style name="Base.ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework" parent="@style/Base.V21.ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework" />
+    <style name="Base.ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework" parent="@style/Base.V21.ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework" />
+    <style name="Base.ThemeOverlay.GoogleMaterial.MaterialAlertDialog" parent="@style/Base.V21.ThemeOverlay.GoogleMaterial.MaterialAlertDialog" />
+    <style name="Base.ThemeOverlay.GoogleMaterial.TextInputEditText" parent="@style/ThemeOverlay.MaterialComponents.TextInputEditText">
+        <item name="colorControlActivated">?attr/colorPrimaryGoogle</item>
+    </style>
+
+    <style name="Base.V14.Theme.GoogleMaterial.Dark" parent="@style/Base.V14.Theme.GoogleMaterial.Dark.Bridge">
+        <item name="android:colorBackground">@color/google_dark_default_color_background</item>
+        <item name="android:windowBackground">@color/google_dark_default_color_background</item>
+        <item name="android:buttonBarButtonStyle">?buttonBarButtonStyle</item>
+        <item name="actionBarStyle">@style/Widget.GoogleMaterial.ActionBar.Solid</item>
+        <item name="actionModeStyle">@style/Widget.GoogleMaterial.ActionMode</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.GoogleMaterial.PopupMenu.Overflow</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog.Alert</item>
+        <item name="borderlessButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.GoogleMaterial.BottomSheetDialog</item>
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="checkboxStyle">@style/Widget.GoogleMaterial.CompoundButton.CheckBox</item>
+        <item name="colorAccent">?attr/colorPrimaryGoogle</item>
+        <item name="colorError">@color/google_dark_default_color_error</item>
+        <item name="colorPrimary">@color/google_dark_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/google_dark_default_color_primary_dark</item>
+        <item name="listPopupWindowStyle">@style/Widget.GoogleMaterial.PopupMenu.ListPopupWindow</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.GoogleMaterial.MaterialAlertDialog</item>
+        <item name="popupMenuStyle">@style/Widget.GoogleMaterial.PopupMenu</item>
+        <item name="radioButtonStyle">@style/Widget.GoogleMaterial.CompoundButton.RadioButton</item>
+        <item name="switchStyle">@style/Widget.GoogleMaterial.CompoundButton.Switch</item>
+        <item name="toolbarStyle">@style/Widget.GoogleMaterial.Toolbar</item>
+        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Dark.BottomSheetDialog" parent="@style/Theme.GoogleMaterial.Dark.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/Animation.MaterialComponents.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/Widget.GoogleMaterial.BottomSheet.Modal</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Dark.Bridge" parent="@style/Platform.GoogleMaterial.Dark.Bridge">
+        <item name="appBarLayoutStyle">@style/Widget.GoogleMaterial.AppBarLayout</item>
+        <item name="bottomAppBarStyle">@style/Widget.GoogleMaterial.BottomAppBar</item>
+        <item name="bottomNavigationStyle">@style/Widget.GoogleMaterial.BottomNavigationView</item>
+        <item name="chipGroupStyle">@style/Widget.GoogleMaterial.ChipGroup</item>
+        <item name="chipStandaloneStyle">@style/Widget.GoogleMaterial.Chip.Input</item>
+        <item name="chipStyle">@style/Widget.GoogleMaterial.Chip.Assistive</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.GoogleMaterial.CircularProgressIndicator</item>
+        <item name="colorErrorStateContent">@color/google_dark_default_color_error_state_content</item>
+        <item name="colorHairline">@color/google_dark_default_color_hairline</item>
+        <item name="colorOnBackground">@color/google_dark_default_color_on_background</item>
+        <item name="colorOnError">@color/google_dark_default_color_on_error</item>
+        <item name="colorOnPrimary">@color/google_dark_default_color_on_primary</item>
+        <item name="colorOnPrimaryGoogle">@color/google_dark_default_color_on_primary_google</item>
+        <item name="colorOnPrimaryStateLayerGoogle">@color/google_dark_default_color_on_primary_state_layer_google</item>
+        <item name="colorOnSecondary">@color/google_dark_default_color_on_secondary</item>
+        <item name="colorOnSecondaryStateContent">@color/google_dark_color_on_secondary_state_content</item>
+        <item name="colorOnSecondaryStateLayer">?attr/colorOnSecondary</item>
+        <item name="colorOnSurface">@color/google_dark_default_color_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/google_default_color_on_surface</item>
+        <item name="colorOnSurfaceStateContent">@color/google_dark_color_on_surface_state_content</item>
+        <item name="colorOnSurfaceStateLayer">?attr/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">@color/google_dark_default_color_on_surface_variant</item>
+        <item name="colorPrimaryGoogle">@color/google_dark_default_color_primary_google</item>
+        <item name="colorPrimaryGoogleInverse">@color/google_default_color_primary_google</item>
+        <item name="colorPrimaryStateContentGoogle">@color/google_dark_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateContentGoogleInverse">@color/google_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateLayerGoogleInverse">?attr/colorPrimaryGoogleInverse</item>
+        <item name="colorPrimaryVariant">@color/google_dark_default_color_primary_variant</item>
+        <item name="colorPrimaryVariantGoogle">@color/google_dark_default_color_primary_variant_google</item>
+        <item name="colorSecondary">@color/google_dark_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/google_dark_default_color_secondary_variant</item>
+        <item name="colorSurface">@color/google_dark_default_color_surface</item>
+        <item name="colorSurfaceInverse">@color/google_default_color_surface</item>
+        <item name="colorTextFieldError">@color/google_dark_default_color_textfield_error</item>
+        <item name="colorTextFieldHairline">@color/google_dark_color_textfield_hairline</item>
+        <item name="colorTextFieldOnSurfaceVariant">@color/google_dark_color_textfield_on_surface_variant</item>
+        <item name="colorTextFieldPrimary">?attr/colorPrimaryGoogle</item>
+        <item name="colorTextFieldSurface">@color/google_dark_default_color_textfield_surface</item>
+        <item name="colorTimePickerSurface">@color/google_dark_default_color_timepicker_surface</item>
+        <item name="extendedFloatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded.Dark</item>
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon</item>
+        <item name="floatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.FloatingActionButton.Branded.Dark</item>
+        <item name="floatingActionButtonStyle">@style/Widget.GoogleMaterial.FloatingActionButton</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.GoogleMaterial.LinearProgressIndicator</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.GoogleMaterial.Button.StrokedButton</item>
+        <item name="materialButtonStyle">@style/Widget.GoogleMaterial.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.GoogleMaterial.CardView</item>
+        <item name="minTouchTargetSize">0dp</item>
+        <item name="navigationViewStyle">@style/Widget.GoogleMaterial.NavigationView</item>
+        <item name="scrimBackground">@color/google_scrim</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.GoogleMaterial.LargeComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.GoogleMaterial.MediumComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.GoogleMaterial.SmallComponent</item>
+        <item name="sliderStyle">@style/Widget.GoogleMaterial.Slider</item>
+        <item name="snackbarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Snackbar</item>
+        <item name="snackbarStyle">@style/Widget.GoogleMaterial.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.GoogleMaterial.Snackbar.TextView</item>
+        <item name="tabStyle">@style/Widget.GoogleMaterial.TabLayout</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.GoogleMaterial.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.GoogleMaterial.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.GoogleMaterial.Caption</item>
+        <item name="textAppearanceDisplay1">@style/TextAppearance.GoogleMaterial.Display1</item>
+        <item name="textAppearanceDisplay2">@style/TextAppearance.GoogleMaterial.Display2</item>
+        <item name="textAppearanceDisplay3">@style/TextAppearance.GoogleMaterial.Display3</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.GoogleMaterial.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.GoogleMaterial.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.GoogleMaterial.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.GoogleMaterial.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.GoogleMaterial.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.GoogleMaterial.Headline6</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.GoogleMaterial.Overline</item>
+        <item name="textAppearanceSubhead1">@style/TextAppearance.GoogleMaterial.Subhead1</item>
+        <item name="textAppearanceSubhead2">@style/TextAppearance.GoogleMaterial.Subhead2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.GoogleMaterial.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.GoogleMaterial.Subtitle2</item>
+        <item name="textInputStyle">@style/Widget.GoogleMaterial.TextInputLayout.OutlinedBox</item>
+        <item name="themeFontFamily">@font/google_sans</item>
+        <item name="themeFontFamilyDisplay">@font/google_sans_display</item>
+        <item name="themeFontFamilyMedium">@font/google_sans_medium</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Dark.Dialog" parent="@style/Base.V14.Theme.GoogleMaterial.Dark.Dialog.Bridge">
+        <item name="android:colorBackground">@color/google_dark_default_color_background</item>
+        <item name="actionBarStyle">@style/Widget.GoogleMaterial.ActionBar.Solid</item>
+        <item name="actionModeStyle">@style/Widget.GoogleMaterial.ActionMode</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.GoogleMaterial.PopupMenu.Overflow</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog.Alert</item>
+        <item name="borderlessButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton</item>
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="checkboxStyle">@style/Widget.GoogleMaterial.CompoundButton.CheckBox</item>
+        <item name="colorAccent">?colorPrimaryGoogle</item>
+        <item name="colorError">@color/google_dark_default_color_error</item>
+        <item name="colorPrimary">@color/google_dark_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/google_dark_default_color_primary_dark</item>
+        <item name="listPopupWindowStyle">@style/Widget.GoogleMaterial.PopupMenu.ListPopupWindow</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.GoogleMaterial.MaterialAlertDialog</item>
+        <item name="popupMenuStyle">@style/Widget.GoogleMaterial.PopupMenu</item>
+        <item name="radioButtonStyle">@style/Widget.GoogleMaterial.CompoundButton.RadioButton</item>
+        <item name="switchStyle">@style/Widget.GoogleMaterial.CompoundButton.Switch</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="toolbarStyle">@style/Widget.GoogleMaterial.Toolbar</item>
+        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Dark.Dialog.Bridge" parent="@style/Platform.GoogleMaterial.Dark.Dialog.Bridge">
+        <item name="appBarLayoutStyle">@style/Widget.GoogleMaterial.AppBarLayout</item>
+        <item name="bottomAppBarStyle">@style/Widget.GoogleMaterial.BottomAppBar</item>
+        <item name="bottomNavigationStyle">@style/Widget.GoogleMaterial.BottomNavigationView</item>
+        <item name="chipGroupStyle">@style/Widget.GoogleMaterial.ChipGroup</item>
+        <item name="chipStandaloneStyle">@style/Widget.GoogleMaterial.Chip.Input</item>
+        <item name="chipStyle">@style/Widget.GoogleMaterial.Chip.Assistive</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.GoogleMaterial.CircularProgressIndicator</item>
+        <item name="colorErrorStateContent">@color/google_dark_default_color_error_state_content</item>
+        <item name="colorHairline">@color/google_dark_default_color_hairline</item>
+        <item name="colorOnBackground">@color/google_dark_default_color_on_background</item>
+        <item name="colorOnError">@color/google_dark_default_color_on_error</item>
+        <item name="colorOnPrimary">@color/google_dark_default_color_on_primary</item>
+        <item name="colorOnPrimaryGoogle">@color/google_dark_default_color_on_primary_google</item>
+        <item name="colorOnPrimaryStateLayerGoogle">@color/google_dark_default_color_on_primary_state_layer_google</item>
+        <item name="colorOnSecondary">@color/google_dark_default_color_on_secondary</item>
+        <item name="colorOnSecondaryStateContent">@color/google_dark_color_on_secondary_state_content</item>
+        <item name="colorOnSecondaryStateLayer">?attr/colorOnSecondary</item>
+        <item name="colorOnSurface">@color/google_dark_default_color_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/google_default_color_on_surface</item>
+        <item name="colorOnSurfaceStateContent">@color/google_dark_color_on_surface_state_content</item>
+        <item name="colorOnSurfaceStateLayer">?attr/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">@color/google_dark_default_color_on_surface_variant</item>
+        <item name="colorPrimaryGoogle">@color/google_dark_default_color_primary_google</item>
+        <item name="colorPrimaryGoogleInverse">@color/google_default_color_primary_google</item>
+        <item name="colorPrimaryStateContentGoogle">@color/google_dark_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateContentGoogleInverse">@color/google_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateLayerGoogleInverse">?attr/colorPrimaryGoogleInverse</item>
+        <item name="colorPrimaryVariant">@color/google_dark_default_color_primary_variant</item>
+        <item name="colorPrimaryVariantGoogle">@color/google_dark_default_color_primary_variant_google</item>
+        <item name="colorSecondary">@color/google_dark_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/google_dark_default_color_secondary_variant</item>
+        <item name="colorSurface">@color/google_dark_default_color_surface</item>
+        <item name="colorSurfaceInverse">@color/google_default_color_surface</item>
+        <item name="colorTextFieldError">@color/google_dark_default_color_textfield_error</item>
+        <item name="colorTextFieldHairline">@color/google_dark_color_textfield_hairline</item>
+        <item name="colorTextFieldOnSurfaceVariant">@color/google_dark_color_textfield_on_surface_variant</item>
+        <item name="colorTextFieldPrimary">?attr/colorPrimaryGoogle</item>
+        <item name="colorTextFieldSurface">@color/google_dark_default_color_textfield_surface</item>
+        <item name="colorTimePickerSurface">@color/google_dark_default_color_timepicker_surface</item>
+        <item name="extendedFloatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded.Dark</item>
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon</item>
+        <item name="floatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.FloatingActionButton.Branded.Dark</item>
+        <item name="floatingActionButtonStyle">@style/Widget.GoogleMaterial.FloatingActionButton</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.GoogleMaterial.LinearProgressIndicator</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.GoogleMaterial.Button.StrokedButton</item>
+        <item name="materialButtonStyle">@style/Widget.GoogleMaterial.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.GoogleMaterial.CardView</item>
+        <item name="minTouchTargetSize">0dp</item>
+        <item name="navigationViewStyle">@style/Widget.GoogleMaterial.NavigationView</item>
+        <item name="scrimBackground">@color/google_scrim</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.GoogleMaterial.LargeComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.GoogleMaterial.MediumComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.GoogleMaterial.SmallComponent</item>
+        <item name="sliderStyle">@style/Widget.GoogleMaterial.Slider</item>
+        <item name="snackbarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Snackbar</item>
+        <item name="snackbarStyle">@style/Widget.GoogleMaterial.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.GoogleMaterial.Snackbar.TextView</item>
+        <item name="tabStyle">@style/Widget.GoogleMaterial.TabLayout</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.GoogleMaterial.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.GoogleMaterial.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.GoogleMaterial.Caption</item>
+        <item name="textAppearanceDisplay1">@style/TextAppearance.GoogleMaterial.Display1</item>
+        <item name="textAppearanceDisplay2">@style/TextAppearance.GoogleMaterial.Display2</item>
+        <item name="textAppearanceDisplay3">@style/TextAppearance.GoogleMaterial.Display3</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.GoogleMaterial.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.GoogleMaterial.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.GoogleMaterial.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.GoogleMaterial.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.GoogleMaterial.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.GoogleMaterial.Headline6</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.GoogleMaterial.Overline</item>
+        <item name="textAppearanceSubhead1">@style/TextAppearance.GoogleMaterial.Subhead1</item>
+        <item name="textAppearanceSubhead2">@style/TextAppearance.GoogleMaterial.Subhead2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.GoogleMaterial.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.GoogleMaterial.Subtitle2</item>
+        <item name="textInputStyle">@style/Widget.GoogleMaterial.TextInputLayout.OutlinedBox</item>
+        <item name="themeFontFamily">@font/google_sans</item>
+        <item name="themeFontFamilyDisplay">@font/google_sans_display</item>
+        <item name="themeFontFamilyMedium">@font/google_sans_medium</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Light" parent="@style/Base.V14.Theme.GoogleMaterial.Light.Bridge">
+        <item name="android:colorBackground">@color/google_default_color_background</item>
+        <item name="android:windowBackground">@color/google_default_color_background</item>
+        <item name="android:buttonBarButtonStyle">?attr/buttonBarButtonStyle</item>
+        <item name="actionBarStyle">@style/Widget.GoogleMaterial.Light.ActionBar.Solid</item>
+        <item name="actionModeStyle">@style/Widget.GoogleMaterial.ActionMode</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.GoogleMaterial.PopupMenu.Overflow</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog.Alert</item>
+        <item name="borderlessButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.GoogleMaterial.BottomSheetDialog</item>
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="checkboxStyle">@style/Widget.GoogleMaterial.CompoundButton.CheckBox</item>
+        <item name="colorAccent">?attr/colorPrimaryGoogle</item>
+        <item name="colorError">@color/google_default_color_error</item>
+        <item name="colorPrimary">@color/google_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/google_default_color_primary_dark</item>
+        <item name="listPopupWindowStyle">@style/Widget.GoogleMaterial.PopupMenu.ListPopupWindow</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.GoogleMaterial.MaterialAlertDialog</item>
+        <item name="popupMenuStyle">@style/Widget.GoogleMaterial.PopupMenu</item>
+        <item name="radioButtonStyle">@style/Widget.GoogleMaterial.CompoundButton.RadioButton</item>
+        <item name="switchStyle">@style/Widget.GoogleMaterial.CompoundButton.Switch</item>
+        <item name="toolbarStyle">@style/Widget.GoogleMaterial.Toolbar</item>
+        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Light.BottomSheetDialog" parent="@style/Theme.GoogleMaterial.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/Animation.MaterialComponents.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/Widget.GoogleMaterial.BottomSheet.Modal</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Light.Bridge" parent="@style/Platform.GoogleMaterial.Light.Bridge">
+        <item name="appBarLayoutStyle">@style/Widget.GoogleMaterial.AppBarLayout</item>
+        <item name="bottomAppBarStyle">@style/Widget.GoogleMaterial.BottomAppBar</item>
+        <item name="bottomNavigationStyle">@style/Widget.GoogleMaterial.BottomNavigationView</item>
+        <item name="chipGroupStyle">@style/Widget.GoogleMaterial.ChipGroup</item>
+        <item name="chipStandaloneStyle">@style/Widget.GoogleMaterial.Chip.Input</item>
+        <item name="chipStyle">@style/Widget.GoogleMaterial.Chip.Assistive</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.GoogleMaterial.CircularProgressIndicator</item>
+        <item name="colorErrorStateContent">@color/google_default_color_error_state_content</item>
+        <item name="colorHairline">@color/google_default_color_hairline</item>
+        <item name="colorOnBackground">@color/google_default_color_on_background</item>
+        <item name="colorOnError">@color/google_default_color_on_error</item>
+        <item name="colorOnPrimary">@color/google_default_color_on_primary</item>
+        <item name="colorOnPrimaryGoogle">@color/google_default_color_on_primary_google</item>
+        <item name="colorOnPrimaryStateLayerGoogle">@color/google_default_color_on_primary_state_layer_google</item>
+        <item name="colorOnSecondary">@color/google_default_color_on_secondary</item>
+        <item name="colorOnSecondaryStateContent">@color/google_default_color_on_secondary_state_content</item>
+        <item name="colorOnSecondaryStateLayer">?attr/colorOnSecondary</item>
+        <item name="colorOnSurface">@color/google_default_color_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/google_dark_default_color_on_surface</item>
+        <item name="colorOnSurfaceStateContent">@color/google_default_color_on_surface_state_content</item>
+        <item name="colorOnSurfaceStateLayer">?attr/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">@color/google_default_color_on_surface_variant</item>
+        <item name="colorPrimaryGoogle">@color/google_default_color_primary_google</item>
+        <item name="colorPrimaryGoogleInverse">@color/google_dark_default_color_primary_google</item>
+        <item name="colorPrimaryStateContentGoogle">@color/google_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateContentGoogleInverse">@color/google_dark_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateLayerGoogleInverse">?attr/colorPrimaryGoogleInverse</item>
+        <item name="colorPrimaryVariant">@color/google_default_color_primary_variant</item>
+        <item name="colorPrimaryVariantGoogle">@color/google_default_color_primary_variant_google</item>
+        <item name="colorSecondary">@color/google_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/google_default_color_secondary_variant</item>
+        <item name="colorSurface">@color/google_default_color_surface</item>
+        <item name="colorSurfaceInverse">@color/google_dark_default_color_surface</item>
+        <item name="colorTextFieldError">@color/google_default_color_textfield_error</item>
+        <item name="colorTextFieldHairline">@color/google_default_color_textfield_hairline</item>
+        <item name="colorTextFieldOnSurfaceVariant">@color/google_default_color_textfield_on_surface_variant</item>
+        <item name="colorTextFieldPrimary">?attr/colorPrimaryGoogle</item>
+        <item name="colorTextFieldSurface">@color/google_default_color_textfield_surface</item>
+        <item name="colorTimePickerSurface">@color/google_default_color_timepicker_surface</item>
+        <item name="extendedFloatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded.Light</item>
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon</item>
+        <item name="floatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.FloatingActionButton.Branded.Light</item>
+        <item name="floatingActionButtonStyle">@style/Widget.GoogleMaterial.FloatingActionButton</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.GoogleMaterial.LinearProgressIndicator</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.GoogleMaterial.Button.StrokedButton</item>
+        <item name="materialButtonStyle">@style/Widget.GoogleMaterial.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.GoogleMaterial.CardView</item>
+        <item name="minTouchTargetSize">0dp</item>
+        <item name="navigationViewStyle">@style/Widget.GoogleMaterial.NavigationView</item>
+        <item name="scrimBackground">@color/google_scrim</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.GoogleMaterial.LargeComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.GoogleMaterial.MediumComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.GoogleMaterial.SmallComponent</item>
+        <item name="sliderStyle">@style/Widget.GoogleMaterial.Slider</item>
+        <item name="snackbarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Snackbar</item>
+        <item name="snackbarStyle">@style/Widget.GoogleMaterial.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.GoogleMaterial.Snackbar.TextView</item>
+        <item name="tabStyle">@style/Widget.GoogleMaterial.TabLayout</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.GoogleMaterial.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.GoogleMaterial.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.GoogleMaterial.Caption</item>
+        <item name="textAppearanceDisplay1">@style/TextAppearance.GoogleMaterial.Display1</item>
+        <item name="textAppearanceDisplay2">@style/TextAppearance.GoogleMaterial.Display2</item>
+        <item name="textAppearanceDisplay3">@style/TextAppearance.GoogleMaterial.Display3</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.GoogleMaterial.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.GoogleMaterial.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.GoogleMaterial.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.GoogleMaterial.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.GoogleMaterial.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.GoogleMaterial.Headline6</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.GoogleMaterial.Overline</item>
+        <item name="textAppearanceSubhead1">@style/TextAppearance.GoogleMaterial.Subhead1</item>
+        <item name="textAppearanceSubhead2">@style/TextAppearance.GoogleMaterial.Subhead2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.GoogleMaterial.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.GoogleMaterial.Subtitle2</item>
+        <item name="textInputStyle">@style/Widget.GoogleMaterial.TextInputLayout.OutlinedBox</item>
+        <item name="themeFontFamily">@font/google_sans</item>
+        <item name="themeFontFamilyDisplay">@font/google_sans_display</item>
+        <item name="themeFontFamilyMedium">@font/google_sans_medium</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Light.Dialog" parent="@style/Base.V14.Theme.GoogleMaterial.Light.Dialog.Bridge">
+        <item name="android:colorBackground">@color/google_default_color_background</item>
+        <item name="actionBarStyle">@style/Widget.GoogleMaterial.Light.ActionBar.Solid</item>
+        <item name="actionModeStyle">@style/Widget.GoogleMaterial.ActionMode</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.GoogleMaterial.PopupMenu.Overflow</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog.Alert</item>
+        <item name="borderlessButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton</item>
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+        <item name="checkboxStyle">@style/Widget.GoogleMaterial.CompoundButton.CheckBox</item>
+        <item name="colorAccent">?attr/colorPrimaryGoogle</item>
+        <item name="colorError">@color/google_default_color_error</item>
+        <item name="colorPrimary">@color/google_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/google_default_color_primary_dark</item>
+        <item name="listPopupWindowStyle">@style/Widget.GoogleMaterial.PopupMenu.ListPopupWindow</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.GoogleMaterial.MaterialAlertDialog</item>
+        <item name="popupMenuStyle">@style/Widget.GoogleMaterial.PopupMenu</item>
+        <item name="radioButtonStyle">@style/Widget.GoogleMaterial.CompoundButton.RadioButton</item>
+        <item name="switchStyle">@style/Widget.GoogleMaterial.CompoundButton.Switch</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="toolbarStyle">@style/Widget.GoogleMaterial.Toolbar</item>
+        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    </style>
+    <style name="Base.V14.Theme.GoogleMaterial.Light.Dialog.Bridge" parent="@style/Platform.GoogleMaterial.Light.Dialog.Bridge">
+        <item name="appBarLayoutStyle">@style/Widget.GoogleMaterial.AppBarLayout</item>
+        <item name="bottomAppBarStyle">@style/Widget.GoogleMaterial.BottomAppBar</item>
+        <item name="bottomNavigationStyle">@style/Widget.GoogleMaterial.BottomNavigationView</item>
+        <item name="chipGroupStyle">@style/Widget.GoogleMaterial.ChipGroup</item>
+        <item name="chipStandaloneStyle">@style/Widget.GoogleMaterial.Chip.Input</item>
+        <item name="chipStyle">@style/Widget.GoogleMaterial.Chip.Assistive</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.GoogleMaterial.CircularProgressIndicator</item>
+        <item name="colorErrorStateContent">@color/google_default_color_error_state_content</item>
+        <item name="colorHairline">@color/google_default_color_hairline</item>
+        <item name="colorOnBackground">@color/google_default_color_on_background</item>
+        <item name="colorOnError">@color/google_default_color_on_error</item>
+        <item name="colorOnPrimary">@color/google_default_color_on_primary</item>
+        <item name="colorOnPrimaryGoogle">@color/google_default_color_on_primary_google</item>
+        <item name="colorOnPrimaryStateLayerGoogle">@color/google_default_color_on_primary_state_layer_google</item>
+        <item name="colorOnSecondary">@color/google_default_color_on_secondary</item>
+        <item name="colorOnSecondaryStateContent">@color/google_default_color_on_secondary_state_content</item>
+        <item name="colorOnSecondaryStateLayer">?attr/colorOnSecondary</item>
+        <item name="colorOnSurface">@color/google_default_color_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/google_dark_default_color_on_surface</item>
+        <item name="colorOnSurfaceStateContent">@color/google_default_color_on_surface_state_content</item>
+        <item name="colorOnSurfaceStateLayer">?attr/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">@color/google_default_color_on_surface_variant</item>
+        <item name="colorPrimaryGoogle">@color/google_default_color_primary_google</item>
+        <item name="colorPrimaryGoogleInverse">@color/google_dark_default_color_primary_google</item>
+        <item name="colorPrimaryStateContentGoogle">@color/google_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateContentGoogleInverse">@color/google_dark_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateLayerGoogleInverse">?attr/colorPrimaryGoogleInverse</item>
+        <item name="colorPrimaryVariant">@color/google_default_color_primary_variant</item>
+        <item name="colorPrimaryVariantGoogle">@color/google_default_color_primary_variant_google</item>
+        <item name="colorSecondary">@color/google_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/google_default_color_secondary_variant</item>
+        <item name="colorSurface">@color/google_default_color_surface</item>
+        <item name="colorSurfaceInverse">@color/google_dark_default_color_surface</item>
+        <item name="colorTextFieldError">@color/google_default_color_textfield_error</item>
+        <item name="colorTextFieldHairline">@color/google_default_color_textfield_hairline</item>
+        <item name="colorTextFieldOnSurfaceVariant">@color/google_default_color_textfield_on_surface_variant</item>
+        <item name="colorTextFieldPrimary">?attr/colorPrimaryGoogle</item>
+        <item name="colorTextFieldSurface">@color/google_default_color_textfield_surface</item>
+        <item name="colorTimePickerSurface">@color/google_default_color_timepicker_surface</item>
+        <item name="extendedFloatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded.Light</item>
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon</item>
+        <item name="floatingActionButtonBrandedStyle">@style/Widget.GoogleMaterial.FloatingActionButton.Branded.Light</item>
+        <item name="floatingActionButtonStyle">@style/Widget.GoogleMaterial.FloatingActionButton</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.GoogleMaterial.LinearProgressIndicator</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.GoogleMaterial.Button.StrokedButton</item>
+        <item name="materialButtonStyle">@style/Widget.GoogleMaterial.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.GoogleMaterial.CardView</item>
+        <item name="minTouchTargetSize">0dp</item>
+        <item name="navigationViewStyle">@style/Widget.GoogleMaterial.NavigationView</item>
+        <item name="scrimBackground">@color/google_scrim</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.GoogleMaterial.LargeComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.GoogleMaterial.MediumComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.GoogleMaterial.SmallComponent</item>
+        <item name="sliderStyle">@style/Widget.GoogleMaterial.Slider</item>
+        <item name="snackbarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Snackbar</item>
+        <item name="snackbarStyle">@style/Widget.GoogleMaterial.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.GoogleMaterial.Snackbar.TextView</item>
+        <item name="tabStyle">@style/Widget.GoogleMaterial.TabLayout</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.GoogleMaterial.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.GoogleMaterial.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.GoogleMaterial.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.GoogleMaterial.Caption</item>
+        <item name="textAppearanceDisplay1">@style/TextAppearance.GoogleMaterial.Display1</item>
+        <item name="textAppearanceDisplay2">@style/TextAppearance.GoogleMaterial.Display2</item>
+        <item name="textAppearanceDisplay3">@style/TextAppearance.GoogleMaterial.Display3</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.GoogleMaterial.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.GoogleMaterial.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.GoogleMaterial.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.GoogleMaterial.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.GoogleMaterial.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.GoogleMaterial.Headline6</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.GoogleMaterial.Overline</item>
+        <item name="textAppearanceSubhead1">@style/TextAppearance.GoogleMaterial.Subhead1</item>
+        <item name="textAppearanceSubhead2">@style/TextAppearance.GoogleMaterial.Subhead2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.GoogleMaterial.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.GoogleMaterial.Subtitle2</item>
+        <item name="textInputStyle">@style/Widget.GoogleMaterial.TextInputLayout.OutlinedBox</item>
+        <item name="themeFontFamily">@font/google_sans</item>
+        <item name="themeFontFamilyDisplay">@font/google_sans_display</item>
+        <item name="themeFontFamilyMedium">@font/google_sans_medium</item>
+    </style>
+
+    <style name="Base.V14.ThemeOverlay.GoogleMaterial.BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.GoogleMaterial.BottomSheet.Modal</item>
+        <item name="materialButtonStyle">@style/Widget.GoogleMaterial.Button</item>
+    </style>
+    <style name="Base.V14.ThemeOverlay.GoogleMaterial.Dialog" parent="@style/ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:buttonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+        <item name="materialButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+    </style>
+    <style name="Base.V14.ThemeOverlay.GoogleMaterial.Dialog.Alert" parent="@style/ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+    </style>
+    <style name="Base.V14.ThemeOverlay.GoogleMaterial.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:checkedTextViewStyle">@style/Widget.GoogleMaterial.CheckedTextView</item><item name="alertDialogStyle">@style/MaterialAlertDialog.GoogleMaterial</item>
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog.Flush</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.GoogleMaterial.Body.Text</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.GoogleMaterial.Title.Text</item>
+    </style>
+
+    <style name="Base.V21.Theme.GoogleMaterial.Dark" parent="@style/Base.V14.Theme.GoogleMaterial.Dark">
+        <item name="android:alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework</item>
+        <item name="android:timePickerDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog</item>
+        <item name="android:datePickerDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog</item>
+        <item name="android:colorEdgeEffect">@color/google_grey500</item>
+    </style>
+    <style name="Base.V21.Theme.GoogleMaterial.Dark.BottomSheetDialog" parent="@style/Base.V14.Theme.GoogleMaterial.Dark.BottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="Base.V21.Theme.GoogleMaterial.Dark.Dialog" parent="@style/Base.V14.Theme.GoogleMaterial.Dark.Dialog">
+        <item name="android:alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework</item>
+        <item name="android:colorEdgeEffect">@color/google_grey500</item>
+    </style>
+    <style name="Base.V21.Theme.GoogleMaterial.Light" parent="@style/Base.V14.Theme.GoogleMaterial.Light">
+        <item name="android:alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework</item>
+        <item name="android:timePickerDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog</item>
+        <item name="android:datePickerDialogTheme">@style/ThemeOverlay.GoogleMaterial.Dialog</item>
+        <item name="android:colorEdgeEffect">@color/google_grey500</item>
+    </style>
+    <style name="Base.V21.Theme.GoogleMaterial.Light.BottomSheetDialog" parent="@style/Base.V14.Theme.GoogleMaterial.Light.BottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="Base.V21.Theme.GoogleMaterial.Light.Dialog" parent="@style/Base.V14.Theme.GoogleMaterial.Light.Dialog">
+        <item name="android:alertDialogTheme">@style/ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework</item>
+        <item name="android:colorEdgeEffect">@color/google_grey500</item>
+    </style>
+
+    <style name="Base.V21.ThemeOverlay.GoogleMaterial.BottomSheetDialog" parent="@style/Base.V14.ThemeOverlay.GoogleMaterial.BottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="Base.V21.ThemeOverlay.GoogleMaterial.Dialog" parent="@style/Base.V14.ThemeOverlay.GoogleMaterial.Dialog">
+        <item name="android:windowBackground">@drawable/google_dialog_background</item>
+    </style>
+    <style name="Base.V21.ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework" parent="@style/ThemeOverlay.MaterialComponents.Dialog.Alert.Framework">
+        <item name="android:buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+    </style>
+    <style name="Base.V21.ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework" parent="@style/ThemeOverlay.MaterialComponents.Light.Dialog.Alert.Framework">
+        <item name="android:buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
+    </style>
+    <style name="Base.V21.ThemeOverlay.GoogleMaterial.MaterialAlertDialog" parent="@style/Base.V14.ThemeOverlay.GoogleMaterial.MaterialAlertDialog">
+        <item name="android:windowElevation">@dimen/google_window_elevation</item>
+    </style>
+
+    <style name="Base.V23.Theme.GoogleMaterial.Light" parent="@style/Base.V21.Theme.GoogleMaterial.Light">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Base.Widget.GoogleMaterial.ActionBar.Solid" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="subtitleTextStyle">@style/TextAppearance.GoogleMaterial.ActionBar.Subtitle</item>
+        <item name="titleTextStyle">@style/TextAppearance.GoogleMaterial.ActionBar.Title</item>
+    </style>
+    <style name="Base.Widget.GoogleMaterial.Chip" parent="@style/Base.Widget.MaterialComponents.Chip">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.Chip.Input</item>
+        <item name="android:textColor">@color/google_chip_text_color</item>
+        <item name="android:stateListAnimator">@animator/google_chip_state_list_anim</item>
+        <item name="checkedIcon">@drawable/ic_google_chip_checked_circle</item>
+        <item name="chipBackgroundColor">@color/google_chip_background_color</item>
+        <item name="chipIcon">@null</item>
+        <item name="chipIconSize">18dp</item>
+        <item name="chipStrokeColor">@color/google_chip_stroke_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipSurfaceColor">@color/google_chip_surface_color</item>
+        <item name="closeIcon">@drawable/ic_google_chip_close</item>
+        <item name="closeIconSize">18dp</item>
+        <item name="closeIconTint">@color/google_chip_text_color</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="rippleColor">@color/google_chip_ripple_color</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.GoogleMaterial.Chip</item>
+    </style>
+    <style name="Base.Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded" parent="@style/Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon">
+        <item name="android:textColor">@color/google_extended_fab_branded_text_color</item>
+        <item name="android:paddingLeft">@dimen/google_extended_fab_start_padding_branded</item>
+        <item name="android:paddingTop">@dimen/google_extended_fab_top_padding_branded</item>
+        <item name="android:paddingBottom">@dimen/google_extended_fab_bottom_padding_branded</item>
+        <item name="android:paddingStart">@dimen/google_extended_fab_start_padding_branded</item>
+        <item name="icon">@drawable/coloredicons_cic_create_36</item>
+        <item name="iconPadding">@dimen/google_extended_fab_icon_text_spacing_branded</item>
+        <item name="iconSize">@dimen/google_extended_fab_icon_size_branded</item>
+        <item name="iconTint">@null</item>
+        <item name="rippleColor">@color/google_fab_branded_ripple_color</item>
+    </style>
+    <style name="Base.Widget.GoogleMaterial.FloatingActionButton.Branded" parent="@style/Widget.GoogleMaterial.FloatingActionButton">
+        <item name="fabSize">normal</item>
+        <item name="maxImageSize">@dimen/google_fab_branded_image_size</item>
+        <item name="rippleColor">@color/google_fab_branded_ripple_color</item>
+        <item name="srcCompat">@drawable/coloredicons_cic_create_36</item>
+        <item name="tint">@null</item>
+    </style>
+    <style name="Base.Widget.GoogleMaterial.MaterialCalendar.NavigationButton" parent="@style/Widget.GoogleMaterial.Button.TextButton.Dialog.Flush">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="iconTint">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="MaterialAlertDialog.GoogleMaterial" parent="@style/MaterialAlertDialog.MaterialComponents">
+        <item name="enforceMaterialTheme">true</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.GoogleMaterial</item>
+    </style>
+    <style name="MaterialAlertDialog.GoogleMaterial.Body.Text" parent="@style/TextAppearance.GoogleMaterial.Body2">
+        <item name="android:textAppearance">?attr/textAppearanceBody2</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+    <style name="MaterialAlertDialog.GoogleMaterial.Title.Text" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">?attr/textAppearanceSubhead1</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+    <style name="MaterialAlertDialog.GoogleMaterial.Title.Text.CenterStacked" parent="@style/MaterialAlertDialog.GoogleMaterial.Title.Text">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Platform.GoogleMaterial.Dark.Bridge" parent="@style/Theme.MaterialComponents.Bridge" />
+    <style name="Platform.GoogleMaterial.Dark.Dialog.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Bridge" />
+    <style name="Platform.GoogleMaterial.Light.Bridge" parent="@style/Theme.MaterialComponents.Light.Bridge" />
+    <style name="Platform.GoogleMaterial.Light.Dialog.Bridge" parent="@style/Theme.MaterialComponents.Light.Dialog.Bridge" />
+
+    <style name="ShapeAppearance.GoogleMaterial.LargeComponent" parent="@style/ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">@dimen/google_shape_corner_size_large_component</item>
+    </style>
+    <style name="ShapeAppearance.GoogleMaterial.MediumComponent" parent="@style/ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">@dimen/google_shape_corner_size_medium_component</item>
+    </style>
+    <style name="ShapeAppearance.GoogleMaterial.SmallComponent" parent="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">@dimen/google_shape_corner_size_small_component</item>
+    </style>
+    <style name="ShapeAppearance.GoogleMaterial.Tooltip" parent="@style/ShapeAppearance.MaterialComponents.Tooltip">
+        <item name="cornerSize">50.0%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.GoogleMaterial.Chip" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.GoogleMaterial.FloatingActionButton" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@null</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.GoogleMaterial.NavigationView.Item" parent="">
+        <item name="cornerSizeBottomLeft">@dimen/google_navigation_item_shape_corner_size_left</item>
+        <item name="cornerSizeBottomRight">@dimen/google_navigation_item_shape_corner_size_right</item>
+        <item name="cornerSizeTopLeft">@dimen/google_navigation_item_shape_corner_size_left</item>
+        <item name="cornerSizeTopRight">@dimen/google_navigation_item_shape_corner_size_right</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.GoogleMaterial" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="TextAppearance.GoogleMaterial.ActionBar.Subtitle" parent="@style/TextAppearance.GoogleMaterial.Toolbar.Subtitle">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.ActionBar.Title" parent="@style/TextAppearance.GoogleMaterial.Toolbar.Title">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Body1" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0.00625</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Body2" parent="@style/TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0.014285714</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Button" parent="@style/Base.TextAppearance.GoogleMaterial.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+        <item name="android:letterSpacing">0.017857142</item>
+        <item name="fontFamily">@font/google_sans_medium</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Caption" parent="@style/TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0.025</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Chip.Assistive" parent="@style/TextAppearance.GoogleMaterial.Chip.Suggestive">
+        <item name="android:textColor">@color/google_chip_assistive_text_color</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Chip.Input" parent="@style/TextAppearance.GoogleMaterial.Subtitle2">
+        <item name="android:textSize">@dimen/google_chip_input_text_size</item>
+        <item name="android:textColor">@color/google_chip_text_color</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Chip.Suggestive" parent="@style/TextAppearance.GoogleMaterial.Subhead2">
+        <item name="android:textSize">@dimen/google_chip_suggestive_text_size</item>
+        <item name="android:textColor">@color/google_chip_text_color</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Display1" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">64sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans_display</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans_display</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Display2" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">56sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans_display</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans_display</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Display3" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">44sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans_display</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans_display</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Headline1" parent="@style/TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Headline2" parent="@style/TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Headline3" parent="@style/TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Headline4" parent="@style/TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Headline5" parent="@style/TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Headline6" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.MaterialButton" parent="@style/TextAppearance.GoogleMaterial.Button">
+        <item name="android:textColor">@color/google_btn_text_color_selector</item>
+        <item name="android:letterSpacing">@dimen/google_btn_letter_spacing</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.MaterialButton.Secondary" parent="@style/TextAppearance.GoogleMaterial.MaterialButton">
+        <item name="android:textColor">@color/google_btn_text_color_selector_secondary</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.OpenSearchBar" parent="@style/Base.TextAppearance.GoogleMaterial.OpenSearch" />
+    <style name="TextAppearance.GoogleMaterial.OpenSearchView" parent="@style/Base.TextAppearance.GoogleMaterial.OpenSearch" />
+    <style name="TextAppearance.GoogleMaterial.OpenSearchView.Prefix" parent="@style/TextAppearance.GoogleMaterial.OpenSearchView">
+        <item name="android:textColor">?android:attr/textColorTertiary</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Overline" parent="@style/Base.TextAppearance.GoogleMaterial.Overline">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Subhead1" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+        <item name="android:letterSpacing">0.00625</item>
+        <item name="fontFamily">@font/google_sans_medium</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Subhead2" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+        <item name="android:letterSpacing">0.017857142</item>
+        <item name="fontFamily">@font/google_sans_medium</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Subtitle1" parent="@style/Base.TextAppearance.GoogleMaterial.Subtitle1">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Subtitle2" parent="@style/Base.TextAppearance.GoogleMaterial.Subtitle2">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Tab" parent="@style/TextAppearance.GoogleMaterial.Button">
+        <item name="android:textColor">@color/google_tabs_icon_color_selector</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.TimePicker.Title" parent="@style/TextAppearance.GoogleMaterial.Overline">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Toolbar.Subtitle" parent="@style/TextAppearance.GoogleMaterial.Body2">
+        <item name="android:textSize">@dimen/google_toolbar_text_size_subtitle</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Toolbar.Title" parent="@style/TextAppearance.GoogleMaterial.Subhead1">
+        <item name="android:textSize">@dimen/google_toolbar_text_size_title</item>
+    </style>
+    <style name="TextAppearance.GoogleMaterial.Tooltip" parent="@style/TextAppearance.GoogleMaterial.Caption">
+        <item name="android:textColor">?attr/colorOnPrimaryGoogle</item>
+    </style>
+
+    <style name="Theme.GoogleMaterial.Dark" parent="@style/Base.Theme.GoogleMaterial.Dark" />
+    <style name="Theme.GoogleMaterial.Dark.BottomSheetDialog" parent="@style/Base.Theme.GoogleMaterial.Dark.BottomSheetDialog" />
+    <style name="Theme.GoogleMaterial.Dark.Bridge" parent="@style/Base.Theme.GoogleMaterial.Dark.Bridge" />
+    <style name="Theme.GoogleMaterial.Dark.Dialog" parent="@style/Base.Theme.GoogleMaterial.Dark.Dialog" />
+    <style name="Theme.GoogleMaterial.Dark.NoActionBar" parent="@style/Theme.GoogleMaterial.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.GoogleMaterial.DayNight.BottomSheetDialog" parent="@style/Theme.GoogleMaterial.Light.BottomSheetDialog" />
+    <style name="Theme.GoogleMaterial.DayNight.Bridge" parent="@style/Theme.GoogleMaterial.Light.Bridge"/>
+    <style name="Theme.GoogleMaterial.DayNight.NoActionBar" parent="@style/Theme.GoogleMaterial.Light.NoActionBar" />
+    <style name="Theme.GoogleMaterial.Light" parent="@style/Base.Theme.GoogleMaterial.Light" />
+    <style name="Theme.GoogleMaterial.Light.BottomSheetDialog" parent="@style/Base.Theme.GoogleMaterial.Light.BottomSheetDialog" />
+    <style name="Theme.GoogleMaterial.Light.Bridge" parent="@style/Base.Theme.GoogleMaterial.Light.Bridge" />
+    <style name="Theme.GoogleMaterial.Light.Dialog" parent="@style/Base.Theme.GoogleMaterial.Light.Dialog" />
+    <style name="Theme.GoogleMaterial.Light.NoActionBar" parent="@style/Theme.GoogleMaterial.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeOverlay.GoogleMaterial.BottomSheetDialog" parent="@style/Base.ThemeOverlay.GoogleMaterial.BottomSheetDialog" />
+    <style name="ThemeOverlay.GoogleMaterial.Dark" parent="@style/ThemeOverlay.MaterialComponents.Dark">
+        <item name="android:colorBackground">@color/google_dark_default_color_background</item>
+        <item name="colorError">@color/google_dark_default_color_error</item>
+        <item name="colorOnBackground">@color/google_dark_default_color_on_background</item>
+        <item name="colorOnError">@color/google_dark_default_color_on_error</item>
+        <item name="colorOnPrimary">@color/google_dark_default_color_on_primary</item>
+        <item name="colorOnSecondary">@color/google_dark_default_color_on_secondary</item>
+        <item name="colorOnSurface">@color/google_dark_default_color_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/google_dark_default_color_on_surface_variant</item>
+        <item name="colorPrimary">@color/google_dark_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/google_dark_default_color_primary_dark</item>
+        <item name="colorPrimaryVariant">@color/google_dark_default_color_primary_variant</item>
+        <item name="colorSecondary">@color/google_dark_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/google_dark_default_color_secondary_variant</item>
+        <item name="colorSurface">@color/google_dark_default_color_surface</item>
+        <item name="colorErrorStateContent">@color/google_dark_default_color_error_state_content</item>
+        <item name="colorHairline">@color/google_dark_default_color_hairline</item>
+        <item name="colorOnPrimaryGoogle">@color/google_dark_default_color_on_primary_google</item>
+        <item name="colorOnPrimaryStateLayerGoogle">@color/google_dark_default_color_on_primary_state_layer_google</item>
+        <item name="colorOnSecondaryStateContent">@color/google_dark_color_on_secondary_state_content</item>
+        <item name="colorOnSecondaryStateLayer">?attr/colorOnSecondary</item>
+        <item name="colorOnSurfaceInverse">@color/google_default_color_on_surface</item>
+        <item name="colorOnSurfaceStateContent">@color/google_dark_color_on_surface_state_content</item>
+        <item name="colorOnSurfaceStateLayer">?attr/colorOnSurface</item>
+        <item name="colorPrimaryGoogle">@color/google_dark_default_color_primary_google</item>
+        <item name="colorPrimaryGoogleInverse">@color/google_default_color_primary_google</item>
+        <item name="colorPrimaryStateContentGoogle">@color/google_dark_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateContentGoogleInverse">@color/google_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateLayerGoogleInverse">?attr/colorPrimaryGoogleInverse</item>
+        <item name="colorPrimaryVariantGoogle">@color/google_dark_default_color_primary_variant_google</item>
+        <item name="colorSurfaceInverse">@color/google_default_color_surface</item>
+        <item name="colorTextFieldError">@color/google_dark_default_color_textfield_error</item>
+        <item name="colorTextFieldHairline">@color/google_dark_color_textfield_hairline</item>
+        <item name="colorTextFieldOnSurfaceVariant">@color/google_dark_color_textfield_on_surface_variant</item>
+        <item name="colorTextFieldPrimary">?attr/colorPrimaryGoogle</item>
+        <item name="colorTextFieldSurface">@color/google_dark_default_color_textfield_surface</item>
+        <item name="colorTimePickerSurface">@color/google_dark_default_color_timepicker_surface</item>
+    </style>
+    <style name="ThemeOverlay.GoogleMaterial.Dialog" parent="@style/Base.ThemeOverlay.GoogleMaterial.Dialog" />
+    <style name="ThemeOverlay.GoogleMaterial.Dialog.Alert" parent="@style/Base.ThemeOverlay.GoogleMaterial.Dialog.Alert" />
+    <style name="ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework" parent="@style/Base.ThemeOverlay.GoogleMaterial.Dialog.Alert.Framework" />
+    <style name="ThemeOverlay.GoogleMaterial.Light" parent="@style/ThemeOverlay.MaterialComponents.Light">
+        <item name="android:colorBackground">@color/google_default_color_background</item>
+        <item name="colorError">@color/google_default_color_error</item>
+        <item name="colorOnBackground">@color/google_default_color_on_background</item>
+        <item name="colorOnError">@color/google_default_color_on_error</item>
+        <item name="colorOnPrimary">@color/google_default_color_on_primary</item>
+        <item name="colorOnSecondary">@color/google_default_color_on_secondary</item>
+        <item name="colorOnSurface">@color/google_default_color_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/google_default_color_on_surface_variant</item>
+        <item name="colorPrimary">@color/google_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/google_default_color_primary_dark</item>
+        <item name="colorPrimaryVariant">@color/google_default_color_primary_variant</item>
+        <item name="colorSecondary">@color/google_default_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/google_default_color_secondary_variant</item>
+        <item name="colorSurface">@color/google_default_color_surface</item>
+        <item name="colorErrorStateContent">@color/google_default_color_error_state_content</item>
+        <item name="colorHairline">@color/google_default_color_hairline</item>
+        <item name="colorOnPrimaryGoogle">@color/google_default_color_on_primary_google</item>
+        <item name="colorOnPrimaryStateLayerGoogle">@color/google_default_color_on_primary_state_layer_google</item>
+        <item name="colorOnSecondaryStateContent">@color/google_default_color_on_secondary_state_content</item>
+        <item name="colorOnSecondaryStateLayer">?attr/colorOnSecondary</item>
+        <item name="colorOnSurfaceInverse">@color/google_dark_default_color_on_surface</item>
+        <item name="colorOnSurfaceStateContent">@color/google_default_color_on_surface_state_content</item>
+        <item name="colorOnSurfaceStateLayer">?attr/colorOnSurface</item>
+        <item name="colorPrimaryGoogle">@color/google_default_color_primary_google</item>
+        <item name="colorPrimaryGoogleInverse">@color/google_dark_default_color_primary_google</item>
+        <item name="colorPrimaryStateContentGoogle">@color/google_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateContentGoogleInverse">@color/google_dark_default_color_primary_state_content_google</item>
+        <item name="colorPrimaryStateLayerGoogleInverse">?attr/colorPrimaryGoogleInverse</item>
+        <item name="colorPrimaryVariantGoogle">@color/google_default_color_primary_variant_google</item>
+        <item name="colorSurfaceInverse">@color/google_dark_default_color_surface</item>
+        <item name="colorTextFieldError">@color/google_default_color_textfield_error</item>
+        <item name="colorTextFieldHairline">@color/google_default_color_textfield_hairline</item>
+        <item name="colorTextFieldOnSurfaceVariant">@color/google_default_color_textfield_on_surface_variant</item>
+        <item name="colorTextFieldPrimary">?attr/colorOnSecondary</item>
+        <item name="colorTextFieldSurface">@color/google_default_color_textfield_surface</item>
+        <item name="colorTimePickerSurface">@color/google_default_color_timepicker_surface</item>
+    </style>
+    <style name="ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework" parent="@style/Base.ThemeOverlay.GoogleMaterial.Light.Dialog.Alert.Framework" />
+    <style name="ThemeOverlay.GoogleMaterial.MaterialAlertDialog" parent="@style/Base.ThemeOverlay.GoogleMaterial.MaterialAlertDialog" />
+    <style name="ThemeOverlay.GoogleMaterial.MaterialAlertDialog.Centered" parent="@style/Base.ThemeOverlay.GoogleMaterial.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleIconStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked</item>
+        <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.GoogleMaterial.Title.Text.CenterStacked</item>
+    </style>
+    <style name="ThemeOverlay.GoogleMaterial.Snackbar" parent="">
+        <item name="colorOnSurface">?attr/colorOnBackground</item>
+    </style>
+    <style name="ThemeOverlay.GoogleMaterial.TextInputEditText" parent="@style/Base.ThemeOverlay.GoogleMaterial.TextInputEditText">
+        <item name="colorControlNormal">@color/google_textfield_indicator_text_color</item>
+    </style>
+    <style name="ThemeOverlay.GoogleMaterial.TextInputEditText.OutlinedBox" parent="@style/ThemeOverlay.GoogleMaterial.TextInputEditText">
+        <item name="editTextStyle">@style/Widget.GoogleMaterial.TextInputEditText.OutlinedBox</item>
+    </style>
+    <style name="ThemeOverlay.GoogleMaterial.TextInputEditText.OutlinedBox.Dense" parent="@style/ThemeOverlay.GoogleMaterial.TextInputEditText.OutlinedBox">
+        <item name="editTextStyle">@style/Widget.GoogleMaterial.TextInputEditText.OutlinedBox.Dense</item>
+    </style>
+
+    <style name="Widget.GoogleMaterial.ActionBar.Solid" parent="@style/Base.Widget.GoogleMaterial.ActionBar.Solid">
+        <item name="background">@drawable/google_appbar_surface_background_dark</item>
+        <item name="backgroundSplit">@drawable/google_appbar_surface_background_dark</item>
+        <item name="backgroundStacked">@drawable/google_appbar_surface_background_dark</item>
+    </style>
+    <style name="Widget.GoogleMaterial.ActionMode" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="subtitleTextStyle">@style/TextAppearance.GoogleMaterial.ActionBar.Subtitle</item>
+        <item name="titleTextStyle">@style/TextAppearance.GoogleMaterial.ActionBar.Title</item>
+    </style>
+    <style name="Widget.GoogleMaterial.AppBarLayout" parent="@style/Widget.MaterialComponents.AppBarLayout.Surface" />
+    <style name="Widget.GoogleMaterial.BottomAppBar" parent="@style/Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">@color/google_surface_bar_bg_color</item>
+        <item name="elevation">3.0dip</item>
+        <item name="fabAnimationMode">slide</item>
+        <item name="fabCradleMargin">@dimen/google_bottomappbar_fab_cradle_margin</item>
+        <item name="fabCradleRoundedCornerRadius">@dimen/google_bottomappbar_fab_cradle_rounded_corner_radius</item>
+        <item name="fabCradleVerticalOffset">@dimen/google_bottomappbar_fab_cradle_vertical_offset</item>
+    </style>
+    <style name="Widget.GoogleMaterial.BottomNavigationView" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@null</item>
+        <item name="backgroundTint">@color/google_surface_bar_bg_color</item>
+        <item name="elevation">@dimen/google_bottomnavigation_elevation</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="itemIconTint">@color/google_bottom_nav_icon_tint</item>
+        <item name="itemRippleColor">@color/google_bottom_nav_ripple_color_selector</item>
+        <item name="itemTextAppearanceActive">?textAppearanceSubhead2</item>
+        <item name="itemTextAppearanceInactive">?textAppearanceSubhead2</item>
+        <item name="itemTextColor">@color/google_bottom_nav_text_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.BottomSheet" parent="@style/Widget.MaterialComponents.BottomSheet">
+        <item name="android:elevation">@dimen/google_bottom_sheet_elevation</item>
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="enforceMaterialTheme">true</item>
+    </style>
+    <style name="Widget.GoogleMaterial.BottomSheet.Modal" parent="@style/Widget.GoogleMaterial.BottomSheet">
+        <item name="android:elevation">@dimen/google_bottom_sheet_modal_elevation</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.MaterialButton</item>
+        <item name="android:textColor">@color/google_btn_text_color_selector</item>
+        <item name="android:paddingLeft">@dimen/google_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/google_btn_padding_right</item>
+        <item name="android:stateListAnimator">@animator/google_btn_state_list_anim</item>
+        <item name="backgroundTint">@color/google_btn_filled_btn_bg_color_selector</item>
+        <item name="elevation">0dp</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="iconTint">@color/google_btn_text_color_selector</item>
+        <item name="rippleColor">@color/google_btn_filled_btn_ripple_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.Icon" parent="@style/Widget.GoogleMaterial.Button">
+        <item name="android:paddingLeft">@dimen/google_btn_icon_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/google_btn_icon_btn_padding_right</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.StrokedButton" parent="@style/Widget.GoogleMaterial.Button.TextButton">
+        <item name="android:paddingLeft">@dimen/google_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/google_btn_padding_right</item>
+        <item name="strokeColor">@color/google_btn_stroke_color_selector</item>
+        <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.StrokedButton.Icon" parent="@style/Widget.GoogleMaterial.Button.StrokedButton">
+        <item name="android:paddingLeft">@dimen/google_btn_icon_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/google_btn_icon_btn_padding_right</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.TextButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.MaterialButton.Secondary</item>
+        <item name="android:textColor">@color/google_btn_text_color_selector_secondary</item>
+        <item name="backgroundTint">@color/google_btn_text_btn_bg_color_selector</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="iconTint">@color/google_btn_text_color_selector_secondary</item>
+        <item name="rippleColor">@color/google_btn_ripple_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.TextButton.Dialog" parent="@style/Widget.GoogleMaterial.Button.TextButton">
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginLeft">@dimen/google_btn_dialog_btn_spacing</item>
+        <item name="android:minWidth">@dimen/mtrl_btn_dialog_btn_min_width</item>
+        <item name="android:lines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginStart">@dimen/google_btn_dialog_btn_spacing</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.TextButton.Dialog.Flush" parent="@style/Widget.GoogleMaterial.Button.TextButton.Dialog">
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Button.TextButton.Snackbar" parent="@style/Widget.GoogleMaterial.Button.TextButton">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.Subhead1</item>
+        <item name="android:textColor">@color/google_btn_snackbar_color_selector</item>
+        <item name="android:paddingLeft">@dimen/mtrl_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/mtrl_btn_padding_right</item>
+        <item name="rippleColor">@color/google_btn_snackbar_ripple_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="android:stateListAnimator">@animator/google_card_state_list_anim</item>
+        <item name="cardCornerRadius">@dimen/google_card_corner_radius</item>
+        <item name="cardElevation">@dimen/google_card_elevation</item>
+        <item name="cardForegroundColor">@color/google_card_foreground</item>
+        <item name="checkedIcon">@drawable/quantum_ic_check_box_black_24</item>
+        <item name="checkedIconTint">?attr/colorPrimaryGoogle</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="rippleColor">@color/google_card_ripple</item>
+        <item name="shapeAppearance">@null</item>
+        <item name="strokeColor">@color/google_card_stroke</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CheckedTextView" parent="@style/Widget.MaterialComponents.CheckedTextView">
+        <item name="android:textAppearance">?attr/textAppearanceBody2</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Chip.Assistive" parent="@style/Base.Widget.GoogleMaterial.Chip">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.Chip.Assistive</item>
+        <item name="android:textColor">@color/google_chip_assistive_text_color</item>
+        <item name="android:checkable">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipEndPadding">8dp</item>
+        <item name="chipIconVisible">true</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipStartPadding">8dp</item>
+        <item name="closeIconEndPadding">0dp</item>
+        <item name="closeIconStartPadding">0dp</item>
+        <item name="closeIconVisible">false</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="iconStartPadding">0dp</item>
+        <item name="rippleColor">@color/google_chip_ripple_color</item>
+        <item name="textEndPadding">8dp</item>
+        <item name="textStartPadding">8dp</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Chip.Input" parent="@style/Base.Widget.GoogleMaterial.Chip">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.Chip.Input</item>
+        <item name="android:checkable">true</item>
+        <item name="chipEndPadding">4dp</item>
+        <item name="chipIconSize">28dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipStartPadding">4dp</item>
+        <item name="closeIconEndPadding">2dp</item>
+        <item name="closeIconStartPadding">0dp</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="iconStartPadding">-2dp</item>
+        <item name="textEndPadding">8dp</item>
+        <item name="textStartPadding">8dp</item>
+    </style>
+    <style name="Widget.GoogleMaterial.ChipGroup" parent="@style/Widget.MaterialComponents.ChipGroup">
+        <item name="chipSpacingVertical">8dp</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CircularProgressIndicator" parent="@style/Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="indicatorColor">?attr/colorPrimaryVariantGoogle</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CircularProgressIndicator.Small" parent="@style/Widget.MaterialComponents.CircularProgressIndicator.Small">
+        <item name="indicatorColor">?attr/colorPrimaryVariantGoogle</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CompoundButton.CheckBox" parent="@style/Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="android:background">@drawable/google_checkbox_ripple</item>
+        <item name="buttonTint">@color/google_selection_control_button_tint</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CompoundButton.RadioButton" parent="@style/Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:background">@drawable/google_radiobutton_ripple</item>
+        <item name="buttonTint">@color/google_selection_control_button_tint</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+    <style name="Widget.GoogleMaterial.CompoundButton.Switch" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+    <style name="Widget.GoogleMaterial.ExtendedFloatingActionButton" parent="@style/Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="android:textAppearance">?attr/textAppearanceButton</item>
+        <item name="android:textColor">@color/google_extended_fab_text_color_selector</item>
+        <item name="backgroundTint">@color/google_extended_fab_bg_color_selector</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">true</item>
+        <item name="iconTint">@color/google_extended_fab_text_color_selector</item>
+        <item name="rippleColor">@color/google_fab_ripple_color</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.GoogleMaterial.FloatingActionButton</item>
+    </style>
+    <style name="Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon" parent="@style/Widget.GoogleMaterial.ExtendedFloatingActionButton">
+        <item name="android:paddingLeft">@dimen/google_extended_fab_start_padding</item>
+        <item name="android:paddingTop">@dimen/google_extended_fab_top_padding</item>
+        <item name="android:paddingRight">@dimen/google_extended_fab_end_padding</item>
+        <item name="android:paddingBottom">@dimen/google_extended_fab_bottom_padding</item>
+        <item name="android:paddingStart">@dimen/google_extended_fab_start_padding</item>
+        <item name="android:paddingEnd">@dimen/google_extended_fab_end_padding</item>
+        <item name="iconPadding">@dimen/google_extended_fab_icon_text_spacing</item>
+    </style>
+    <style name="Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded.Dark" parent="@style/Base.Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded">
+        <item name="icon">@drawable/google_fab_branded_icon_dark</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.Dark</item>
+    </style>
+    <style name="Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded.Light" parent="@style/Base.Widget.GoogleMaterial.ExtendedFloatingActionButton.Icon.Branded">
+        <item name="icon">@drawable/google_fab_branded_icon_light</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.Light</item>
+    </style>
+    <style name="Widget.GoogleMaterial.FloatingActionButton" parent="@style/Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="elevation">@dimen/google_fab_elevation</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="hoveredFocusedTranslationZ">@dimen/google_fab_translation_z_hovered_focused</item>
+        <item name="pressedTranslationZ">@dimen/google_fab_translation_z_pressed</item>
+        <item name="rippleColor">@color/google_fab_ripple_color</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.GoogleMaterial.FloatingActionButton</item>
+        <item name="tint">@color/google_fab_tint</item>
+    </style>
+    <style name="Widget.GoogleMaterial.FloatingActionButton.Branded.Dark" parent="@style/Base.Widget.GoogleMaterial.FloatingActionButton.Branded">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.Dark</item>
+        <item name="srcCompat">@drawable/google_fab_branded_icon_dark</item>
+    </style>
+    <style name="Widget.GoogleMaterial.FloatingActionButton.Branded.Light" parent="@style/Base.Widget.GoogleMaterial.FloatingActionButton.Branded">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.Light</item>
+        <item name="srcCompat">@drawable/google_fab_branded_icon_light</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Light.ActionBar.Solid" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="subtitleTextStyle">@style/TextAppearance.GoogleMaterial.ActionBar.Subtitle</item>
+        <item name="titleTextStyle">@style/TextAppearance.GoogleMaterial.ActionBar.Title</item>
+    </style>
+    <style name="Widget.GoogleMaterial.LinearProgressIndicator" parent="@style/Widget.MaterialComponents.LinearProgressIndicator">
+        <item name="indicatorColor">?attr/colorPrimaryVariantGoogle</item>
+        <item name="trackColor">?attr/colorSecondary</item>
+        <item name="trackThickness">@dimen/google_linearprogressindicator_track_thickness_large</item>
+    </style>
+    <style name="Widget.GoogleMaterial.NavigationView" parent="@style/Widget.MaterialComponents.NavigationView">
+        <item name="enforceMaterialTheme">true</item>
+        <item name="itemBackground">@null</item>
+        <item name="itemHorizontalPadding">@dimen/google_navigation_item_horizontal_padding</item>
+        <item name="itemIconPadding">@dimen/google_navigation_item_icon_padding</item>
+        <item name="itemIconSize">@dimen/google_navigation_item_icon_size</item>
+        <item name="itemIconTint">@color/google_navigation_item_icon_tint</item>
+        <item name="itemShapeAppearanceOverlay">@style/ShapeAppearanceOverlay.GoogleMaterial.NavigationView.Item</item>
+        <item name="itemShapeFillColor">@color/google_navigation_item_background_color</item>
+        <item name="itemShapeInsetBottom">@dimen/google_navigation_item_shape_vertical_margin</item>
+        <item name="itemShapeInsetEnd">@dimen/google_navigation_item_shape_margin_end</item>
+        <item name="itemShapeInsetStart">@dimen/google_navigation_item_shape_margin_start</item>
+        <item name="itemShapeInsetTop">@dimen/google_navigation_item_shape_vertical_margin</item>
+        <item name="itemTextAppearance">?attr/textAppearanceSubhead2</item>
+        <item name="itemTextColor">@color/google_navigation_item_text_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.PopupMenu" parent="@style/Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupElevation">@dimen/google_menu_elevation</item>
+    </style>
+    <style name="Widget.GoogleMaterial.PopupMenu.ContextMenu" parent="@style/Widget.MaterialComponents.PopupMenu.ContextMenu">
+        <item name="android:popupElevation">@dimen/google_menu_elevation</item>
+    </style>
+    <style name="Widget.GoogleMaterial.PopupMenu.ListPopupWindow" parent="@style/Widget.MaterialComponents.PopupMenu.ListPopupWindow">
+        <item name="android:popupElevation">@dimen/google_menu_elevation</item>
+    </style>
+    <style name="Widget.GoogleMaterial.PopupMenu.Overflow" parent="@style/Widget.MaterialComponents.PopupMenu.Overflow">
+        <item name="android:popupElevation">@dimen/google_menu_elevation</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Slider" parent="@style/Widget.MaterialComponents.Slider">
+        <item name="haloColor">@color/google_slider_halo_color</item>
+        <item name="labelStyle">@style/Widget.GoogleMaterial.Tooltip</item>
+        <item name="thumbColor">@color/google_slider_thumb_color</item>
+        <item name="thumbElevation">@dimen/google_slider_thumb_elevation</item>
+        <item name="tickColorActive">@color/google_slider_active_tick_marks_color</item>
+        <item name="tickColorInactive">@color/google_slider_inactive_tick_marks_color</item>
+        <item name="trackColorActive">@color/google_slider_active_track_color</item>
+        <item name="trackColorInactive">@color/google_slider_inactive_track_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Snackbar" parent="@style/Widget.MaterialComponents.Snackbar">
+        <item name="actionTextColorAlpha">@dimen/design_snackbar_action_text_color_alpha</item>
+        <item name="backgroundTint">?colorSurfaceInverse</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.Snackbar</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Snackbar.TextView" parent="@style/Widget.MaterialComponents.Snackbar.TextView">
+        <item name="android:textColor">?attr/colorOnSurfaceInverse</item>
+        <item name="android:alpha">1.0</item>
+    </style>
+    <style name="Widget.GoogleMaterial.TabLayout" parent="@style/Widget.MaterialComponents.TabLayout">
+        <item name="android:background">?colorSurface</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="tabIconTint">@color/google_tabs_icon_color_selector</item>
+        <item name="tabIndicator">@drawable/google_tabs_rounded_line_indicator</item>
+        <item name="tabIndicatorColor">?attr/colorPrimaryGoogle</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabRippleColor">@color/google_tabs_ripple_color_selector</item>
+        <item name="tabTextAppearance">@style/TextAppearance.GoogleMaterial.Tab</item>
+        <item name="tabTextColor">@color/google_tabs_icon_color_selector</item>
+    </style>
+    <style name="Widget.GoogleMaterial.TextInputEditText.OutlinedBox" parent="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:textColor">@color/google_textfield_input_text_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.TextInputEditText.OutlinedBox.Dense" parent="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:textColor">@color/google_textfield_input_text_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.TextInputLayout.OutlinedBox" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/google_textfield_outlined_label_color</item>
+        <item name="boxStrokeColor">@color/google_textfield_outlined_stroke_color</item>
+        <item name="boxStrokeErrorColor">@color/google_textfield_error_color</item>
+        <item name="counterOverflowTextColor">@color/google_textfield_error_color</item>
+        <item name="counterTextColor">@color/google_textfield_indicator_text_color</item>
+        <item name="endIconTint">@color/google_textfield_outlined_icon_tint</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">true</item>
+        <item name="errorIconTint">@color/google_textfield_error_color</item>
+        <item name="errorTextColor">@color/google_textfield_error_color</item>
+        <item name="helperTextTextColor">@color/google_textfield_indicator_text_color</item>
+        <item name="hintTextColor">@color/google_textfield_outlined_label_color</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.TextInputEditText.OutlinedBox</item>
+        <item name="placeholderTextAppearance">?attr/textAppearanceBody1</item>
+        <item name="placeholderTextColor">@color/google_textfield_indicator_text_color</item>
+        <item name="prefixTextColor">@color/google_textfield_indicator_text_color</item>
+        <item name="shapeAppearanceOverlay">?attr/shapeAppearanceSmallComponent</item>
+        <item name="startIconTint">@color/google_textfield_outlined_icon_tint</item>
+        <item name="suffixTextColor">@color/google_textfield_indicator_text_color</item>
+    </style>
+    <style name="Widget.GoogleMaterial.TextInputLayout.OutlinedBox.Dense" parent="@style/Widget.GoogleMaterial.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.GoogleMaterial.TextInputEditText.OutlinedBox.Dense</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="subtitleTextAppearance">@style/TextAppearance.GoogleMaterial.Toolbar.Subtitle</item>
+        <item name="titleTextAppearance">@style/TextAppearance.GoogleMaterial.Toolbar.Title</item>
+    </style>
+    <style name="Widget.GoogleMaterial.Tooltip" parent="@style/Widget.MaterialComponents.Tooltip">
+        <item name="android:textAppearance">@style/TextAppearance.GoogleMaterial.Tooltip</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:minWidth">28dp</item>
+        <item name="android:minHeight">28dp</item>
+        <item name="backgroundTint">?attr/colorPrimaryGoogle</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.GoogleMaterial.Tooltip</item>
     </style>
 </resources>

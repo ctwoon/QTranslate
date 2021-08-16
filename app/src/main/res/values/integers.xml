@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<integer name="google_btn_anim_delay_ms">100</integer>
+<integer name="google_btn_anim_duration_ms">100</integer>
+</resources>

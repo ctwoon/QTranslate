@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QTranslate</string>
+    <string name="input_text">Input text</string>
+    <string name="trans_text">Translated text</string>
 </resources>
