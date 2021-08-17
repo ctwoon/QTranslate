@@ -29,8 +29,8 @@
     <attr name="textAppearanceDisplay2" format="reference" />
     <attr name="textAppearanceDisplay3" format="reference" />
     <attr name="textAppearanceSubhead1" format="reference" />
-    <attr name="textAppearanceSubhead2" format="reference"/>
+    <attr name="textAppearanceSubhead2" format="reference" />
     <attr name="themeFontFamily" format="reference|string" />
     <attr name="themeFontFamilyDisplay" format="reference|string" />
-    <attr name="themeFontFamilyMedium" format="reference|string"/>
+    <attr name="themeFontFamilyMedium" format="reference|string" />
 </resources>

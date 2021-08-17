@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="Base.V14.ThemeOverlay.GoogleMaterial.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="android:backgroundDimAmount">0.6</item>
-        <item name="android:checkedTextViewStyle">@style/Widget.GoogleMaterial.CheckedTextView</item>
+        <item name="android:checkedTextViewStyle">@style/Widget.GoogleMaterial.CheckedTextView
+        </item>
         <item name="android:dialogCornerRadius">@dimen/google_dialog_corner_radius</item>
         <item name="alertDialogStyle">@style/MaterialAlertDialog.GoogleMaterial</item>
-        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
-        <item name="buttonBarNegativeButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
-        <item name="buttonBarNeutralButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog.Flush</item>
-        <item name="buttonBarPositiveButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog</item>
-        <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.GoogleMaterial.Body.Text</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.GoogleMaterial.Title.Text</item>
+        <item name="buttonBarButtonStyle">@style/Widget.GoogleMaterial.Button.TextButton.Dialog
+        </item>
+        <item name="buttonBarNegativeButtonStyle">
+            @style/Widget.GoogleMaterial.Button.TextButton.Dialog
+        </item>
+        <item name="buttonBarNeutralButtonStyle">
+            @style/Widget.GoogleMaterial.Button.TextButton.Dialog.Flush
+        </item>
+        <item name="buttonBarPositiveButtonStyle">
+            @style/Widget.GoogleMaterial.Button.TextButton.Dialog
+        </item>
+        <item name="materialAlertDialogBodyTextStyle">
+            @style/MaterialAlertDialog.GoogleMaterial.Body.Text
+        </item>
+        <item name="materialAlertDialogTitleTextStyle">
+            @style/MaterialAlertDialog.GoogleMaterial.Title.Text
+        </item>
     </style>
 </resources>

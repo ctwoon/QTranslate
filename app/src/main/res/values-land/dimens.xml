@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<dimen name="google_toolbar_text_size_subtitle">12.0dip</dimen>
-<dimen name="google_toolbar_text_size_title">14.0dip</dimen>
+    <dimen name="google_toolbar_text_size_subtitle">12.0dip</dimen>
+    <dimen name="google_toolbar_text_size_title">14.0dip</dimen>
 </resources>

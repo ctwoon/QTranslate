@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-   <style name="Theme.GoogleMaterial.DayNight.BottomSheetDialog" parent="@style/Theme.GoogleMaterial.Dark.BottomSheetDialog" />
-   <style name="Theme.GoogleMaterial.DayNight.Bridge" parent="@style/Theme.GoogleMaterial.Dark.Bridge" />
-   <style name="Theme.GoogleMaterial.DayNight.NoActionBar" parent="@style/Theme.GoogleMaterial.Dark.NoActionBar" />
+
+    <style name="Theme.GoogleMaterial.DayNight.BottomSheetDialog" parent="@style/Theme.GoogleMaterial.Dark.BottomSheetDialog" />
+
+    <style name="Theme.GoogleMaterial.DayNight.Bridge" parent="@style/Theme.GoogleMaterial.Dark.Bridge" />
+
+    <style name="Theme.GoogleMaterial.DayNight.NoActionBar" parent="@style/Theme.GoogleMaterial.Dark.NoActionBar" />
 </resources>

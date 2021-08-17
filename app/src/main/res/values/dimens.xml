@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<dimen name="google_bottom_sheet_elevation">3.0dip</dimen>
-<dimen name="google_bottom_sheet_modal_elevation">6.0dip</dimen>
-<dimen name="google_bottomappbar_fab_cradle_margin">6.0dip</dimen>
-<dimen name="google_bottomappbar_fab_cradle_rounded_corner_radius">4.0dip</dimen>
-<dimen name="google_bottomappbar_fab_cradle_vertical_offset">12.0dip</dimen>
-<dimen name="google_bottomnavigation_elevation">3.0dip</dimen>
-<dimen name="google_btn_dialog_btn_spacing">8.0dip</dimen>
-<dimen name="google_btn_disabled_elevation">0.0dip</dimen>
-<dimen name="google_btn_disabled_translation_z">0.0dip</dimen>
-<dimen name="google_btn_elevation">0.0dip</dimen>
-<dimen name="google_btn_icon_btn_padding_left">12.0dip</dimen>
-<dimen name="google_btn_icon_btn_padding_right">16.0dip</dimen>
-<item type="dimen" name="google_btn_letter_spacing">0.025</item>
-<dimen name="google_btn_padding_left">24.0dip</dimen>
-<dimen name="google_btn_padding_right">24.0dip</dimen>
-<dimen name="google_btn_translation_z_base">0.0dip</dimen>
-<dimen name="google_btn_translation_z_hovered_focused">1.0dip</dimen>
-<dimen name="google_btn_translation_z_pressed">3.0dip</dimen>
-<dimen name="google_card_corner_radius">8.0dip</dimen>
-<dimen name="google_card_dragged_z">8.0dip</dimen>
-<dimen name="google_card_elevation">0.0dip</dimen>
-<dimen name="google_card_stroke_width">1.0dip</dimen>
-<dimen name="google_chip_input_text_size">14.0sp</dimen>
-<dimen name="google_chip_pressed_translation_z">1.0dip</dimen>
-<dimen name="google_chip_suggestive_text_size">14.0sp</dimen>
-<dimen name="google_circularprogressindicator_indicator_inset_large">4.0dip</dimen>
-<dimen name="google_circularprogressindicator_indicator_size_large">40.0dip</dimen>
-<dimen name="google_circularprogressindicator_track_thickness_large">4.0dip</dimen>
-<dimen name="google_dialog_corner_radius">8.0dip</dimen>
-<dimen name="google_extended_fab_bottom_padding">8.0dip</dimen>
-<dimen name="google_extended_fab_bottom_padding_branded">6.0dip</dimen>
-<dimen name="google_extended_fab_end_padding">24.0dip</dimen>
-<dimen name="google_extended_fab_icon_size_branded">36.0dip</dimen>
-<dimen name="google_extended_fab_icon_text_spacing">16.0dip</dimen>
-<dimen name="google_extended_fab_icon_text_spacing_branded">12.0dip</dimen>
-<dimen name="google_extended_fab_start_padding">16.0dip</dimen>
-<dimen name="google_extended_fab_start_padding_branded">12.0dip</dimen>
-<dimen name="google_extended_fab_top_padding">8.0dip</dimen>
-<dimen name="google_extended_fab_top_padding_branded">6.0dip</dimen>
-<dimen name="google_fab_branded_image_size">36.0dip</dimen>
-<dimen name="google_fab_elevation">6.0dip</dimen>
-<dimen name="google_fab_translation_z_hovered_focused">2.0dip</dimen>
-<dimen name="google_fab_translation_z_pressed">6.0dip</dimen>
-<item type="dimen" name="google_high_ripple_default_alpha">0.4</item>
-<item type="dimen" name="google_high_ripple_focused_alpha">0.48</item>
-<item type="dimen" name="google_high_ripple_hovered_alpha">0.32</item>
-<item type="dimen" name="google_high_ripple_pressed_alpha">0.4</item>
-<dimen name="google_linearprogressindicator_track_thickness_large">4.0dip</dimen>
-<item type="dimen" name="google_low_ripple_default_alpha">0.2</item>
-<item type="dimen" name="google_low_ripple_focused_alpha">0.24</item>
-<item type="dimen" name="google_low_ripple_hovered_alpha">0.08</item>
-<item type="dimen" name="google_low_ripple_pressed_alpha">0.2</item>
-<dimen name="google_menu_elevation">6.0dip</dimen>
-<dimen name="google_min_touch_target_size">48.0dip</dimen>
-<dimen name="google_navigation_item_horizontal_padding">24.0dip</dimen>
-<dimen name="google_navigation_item_icon_padding">16.0dip</dimen>
-<dimen name="google_navigation_item_icon_size">20.0dip</dimen>
-<dimen name="google_navigation_item_shape_corner_size_left">0.0dip</dimen>
-<dimen name="google_navigation_item_shape_corner_size_right">24.0dip</dimen>
-<dimen name="google_navigation_item_shape_margin_end">8.0dip</dimen>
-<dimen name="google_navigation_item_shape_margin_start">0.0dip</dimen>
-<dimen name="google_navigation_item_shape_vertical_margin">0.0dip</dimen>
-<dimen name="google_opensearchbar_elevation">3.0dip</dimen>
-<dimen name="google_opensearchbar_height">48.0dip</dimen>
-<dimen name="google_opensearchbar_padding_start">4.0dip</dimen>
-<dimen name="google_opensearchbar_text_size">16.0sp</dimen>
-<dimen name="google_opensearchview_elevation">6.0dip</dimen>
-<dimen name="google_progressindicator_circular_indicator_size_large">4.0dip</dimen>
-<dimen name="google_progressindicator_circular_indicator_size_medium">3.0dip</dimen>
-<dimen name="google_progressindicator_circular_inset_large">4.0dip</dimen>
-<dimen name="google_progressindicator_circular_inset_medium">4.0dip</dimen>
-<dimen name="google_progressindicator_circular_radius_large">18.0dip</dimen>
-<dimen name="google_progressindicator_circular_radius_medium">12.5dip</dimen>
-<dimen name="google_shape_corner_size_large_component">8.0dip</dimen>
-<dimen name="google_shape_corner_size_medium_component">8.0dip</dimen>
-<dimen name="google_shape_corner_size_small_component">4.0dip</dimen>
-<dimen name="google_slider_thumb_elevation">2.0dip</dimen>
-<dimen name="google_toolbar_text_size_subtitle">14.0dip</dimen>
-<dimen name="google_toolbar_text_size_title">18.0dip</dimen>
-<dimen name="google_window_elevation">6.0dip</dimen>
+    <dimen name="google_bottom_sheet_elevation">3.0dip</dimen>
+    <dimen name="google_bottom_sheet_modal_elevation">6.0dip</dimen>
+    <dimen name="google_bottomappbar_fab_cradle_margin">6.0dip</dimen>
+    <dimen name="google_bottomappbar_fab_cradle_rounded_corner_radius">4.0dip</dimen>
+    <dimen name="google_bottomappbar_fab_cradle_vertical_offset">12.0dip</dimen>
+    <dimen name="google_bottomnavigation_elevation">3.0dip</dimen>
+    <dimen name="google_btn_dialog_btn_spacing">8.0dip</dimen>
+    <dimen name="google_btn_disabled_elevation">0.0dip</dimen>
+    <dimen name="google_btn_disabled_translation_z">0.0dip</dimen>
+    <dimen name="google_btn_elevation">0.0dip</dimen>
+    <dimen name="google_btn_icon_btn_padding_left">12.0dip</dimen>
+    <dimen name="google_btn_icon_btn_padding_right">16.0dip</dimen>
+    <item name="google_btn_letter_spacing" type="dimen">0.025</item>
+    <dimen name="google_btn_padding_left">24.0dip</dimen>
+    <dimen name="google_btn_padding_right">24.0dip</dimen>
+    <dimen name="google_btn_translation_z_base">0.0dip</dimen>
+    <dimen name="google_btn_translation_z_hovered_focused">1.0dip</dimen>
+    <dimen name="google_btn_translation_z_pressed">3.0dip</dimen>
+    <dimen name="google_card_corner_radius">8.0dip</dimen>
+    <dimen name="google_card_dragged_z">8.0dip</dimen>
+    <dimen name="google_card_elevation">0.0dip</dimen>
+    <dimen name="google_card_stroke_width">1.0dip</dimen>
+    <dimen name="google_chip_input_text_size">14.0sp</dimen>
+    <dimen name="google_chip_pressed_translation_z">1.0dip</dimen>
+    <dimen name="google_chip_suggestive_text_size">14.0sp</dimen>
+    <dimen name="google_circularprogressindicator_indicator_inset_large">4.0dip</dimen>
+    <dimen name="google_circularprogressindicator_indicator_size_large">40.0dip</dimen>
+    <dimen name="google_circularprogressindicator_track_thickness_large">4.0dip</dimen>
+    <dimen name="google_dialog_corner_radius">8.0dip</dimen>
+    <dimen name="google_extended_fab_bottom_padding">8.0dip</dimen>
+    <dimen name="google_extended_fab_bottom_padding_branded">6.0dip</dimen>
+    <dimen name="google_extended_fab_end_padding">24.0dip</dimen>
+    <dimen name="google_extended_fab_icon_size_branded">36.0dip</dimen>
+    <dimen name="google_extended_fab_icon_text_spacing">16.0dip</dimen>
+    <dimen name="google_extended_fab_icon_text_spacing_branded">12.0dip</dimen>
+    <dimen name="google_extended_fab_start_padding">16.0dip</dimen>
+    <dimen name="google_extended_fab_start_padding_branded">12.0dip</dimen>
+    <dimen name="google_extended_fab_top_padding">8.0dip</dimen>
+    <dimen name="google_extended_fab_top_padding_branded">6.0dip</dimen>
+    <dimen name="google_fab_branded_image_size">36.0dip</dimen>
+    <dimen name="google_fab_elevation">6.0dip</dimen>
+    <dimen name="google_fab_translation_z_hovered_focused">2.0dip</dimen>
+    <dimen name="google_fab_translation_z_pressed">6.0dip</dimen>
+    <item name="google_high_ripple_default_alpha" type="dimen">0.4</item>
+    <item name="google_high_ripple_focused_alpha" type="dimen">0.48</item>
+    <item name="google_high_ripple_hovered_alpha" type="dimen">0.32</item>
+    <item name="google_high_ripple_pressed_alpha" type="dimen">0.4</item>
+    <dimen name="google_linearprogressindicator_track_thickness_large">4.0dip</dimen>
+    <item name="google_low_ripple_default_alpha" type="dimen">0.2</item>
+    <item name="google_low_ripple_focused_alpha" type="dimen">0.24</item>
+    <item name="google_low_ripple_hovered_alpha" type="dimen">0.08</item>
+    <item name="google_low_ripple_pressed_alpha" type="dimen">0.2</item>
+    <dimen name="google_menu_elevation">6.0dip</dimen>
+    <dimen name="google_min_touch_target_size">48.0dip</dimen>
+    <dimen name="google_navigation_item_horizontal_padding">24.0dip</dimen>
+    <dimen name="google_navigation_item_icon_padding">16.0dip</dimen>
+    <dimen name="google_navigation_item_icon_size">20.0dip</dimen>
+    <dimen name="google_navigation_item_shape_corner_size_left">0.0dip</dimen>
+    <dimen name="google_navigation_item_shape_corner_size_right">24.0dip</dimen>
+    <dimen name="google_navigation_item_shape_margin_end">8.0dip</dimen>
+    <dimen name="google_navigation_item_shape_margin_start">0.0dip</dimen>
+    <dimen name="google_navigation_item_shape_vertical_margin">0.0dip</dimen>
+    <dimen name="google_opensearchbar_elevation">3.0dip</dimen>
+    <dimen name="google_opensearchbar_height">48.0dip</dimen>
+    <dimen name="google_opensearchbar_padding_start">4.0dip</dimen>
+    <dimen name="google_opensearchbar_text_size">16.0sp</dimen>
+    <dimen name="google_opensearchview_elevation">6.0dip</dimen>
+    <dimen name="google_progressindicator_circular_indicator_size_large">4.0dip</dimen>
+    <dimen name="google_progressindicator_circular_indicator_size_medium">3.0dip</dimen>
+    <dimen name="google_progressindicator_circular_inset_large">4.0dip</dimen>
+    <dimen name="google_progressindicator_circular_inset_medium">4.0dip</dimen>
+    <dimen name="google_progressindicator_circular_radius_large">18.0dip</dimen>
+    <dimen name="google_progressindicator_circular_radius_medium">12.5dip</dimen>
+    <dimen name="google_shape_corner_size_large_component">8.0dip</dimen>
+    <dimen name="google_shape_corner_size_medium_component">8.0dip</dimen>
+    <dimen name="google_shape_corner_size_small_component">4.0dip</dimen>
+    <dimen name="google_slider_thumb_elevation">2.0dip</dimen>
+    <dimen name="google_toolbar_text_size_subtitle">14.0dip</dimen>
+    <dimen name="google_toolbar_text_size_title">18.0dip</dimen>
+    <dimen name="google_window_elevation">6.0dip</dimen>
 </resources>
