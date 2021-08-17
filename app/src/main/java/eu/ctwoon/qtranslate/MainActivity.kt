@@ -1,12 +1,20 @@
 package eu.ctwoon.qtranslate
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.speech.RecognizerIntent
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 import eu.ctwoon.qtranslate.provider.Provider.deeplTranslate
 import eu.ctwoon.qtranslate.provider.Provider.detectLang
@@ -14,11 +22,14 @@ import eu.ctwoon.qtranslate.provider.Provider.googleTranslate
 import eu.ctwoon.qtranslate.provider.Provider.yandexTranslate
 import java.util.*
 import kotlin.concurrent.schedule
-import android.view.Menu
+import androidx.core.app.ActivityCompat.startActivityForResult
+import android.R.attr.data
 
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.appcompat.app.AlertDialog
+
+
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +39,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         var ed = findViewById<EditText>(R.id.ed)
+
+        val bottomBar = findViewById<BottomAppBar>(R.id.bottom_app_bar)
+        bottomBar.replaceMenu(R.menu.bottom)
+
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { getSpeechInput() }
 
         findViewById<EditText>(R.id.ed).addTextChangedListener(object : TextWatcher {
 
@@ -76,14 +92,17 @@ class MainActivity : AppCompatActivity() {
         }
         // а тут получаем какого языка текст типо был
         detectLang(txt) { txt ->
-            findViewById<TextInputLayout>(R.id.textField).hint = getString(R.string.input_text) + " · " + txt
+            findViewById<TextInputLayout>(R.id.textField).hint =
+                getString(R.string.input_text) + " · " + txt
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when (item.itemId) {
@@ -96,11 +115,13 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.settings -> {
+                startActivity(Intent(this, Settings::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
     private fun selectEngineDialog() {
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
@@ -153,5 +174,43 @@ class MainActivity : AppCompatActivity() {
 
         val mDialog = mBuilder.create()
         mDialog.show()
+    }
+
+    private fun getSpeechInput() {
+        var intent
+        =  Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        intent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        intent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE,
+            Locale.getDefault()
+        )
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text")
+
+        try {
+            startActivityForResult(intent, 10)
+        } catch (e: Exception) {
+            Toast
+                .makeText(
+                    this, " " + e.message.toString(),
+                    Toast.LENGTH_SHORT
+                )
+                .show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int,
+                                  resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 10) {
+            if (resultCode == RESULT_OK && data != null) {
+                var result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                findViewById<EditText>(R.id.ed).setText(
+                    Objects.requireNonNull(result)?.get(0)
+                )
+            }
+        }
     }
 }

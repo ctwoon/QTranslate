@@ -527,4 +527,9 @@
     <color name="quantum_yellowA200">#ffffff00</color>
     <color name="quantum_yellowA400">#ffffea00</color>
     <color name="quantum_yellowA700">#ffffd600</color>
+    <color name="test">#FFFFFF</color>
+    <color name="test1">#FFFFFF</color>
+    <color name="test2">#FFFFFF</color>
+    <color name="test3">#FFFFFF</color>
+    <color name="test4">#FFFFFF</color>
 </resources>

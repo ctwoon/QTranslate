@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tts"
+        android:icon="@drawable/ic_outline_volume_up_24"
+        android:title="tts"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/star"
+        android:icon="@drawable/ic_baseline_star_border_24"
+        android:title="star"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_outline_history_24"
+        android:title="starred"
+        app:showAsAction="ifRoom" />
+</menu>

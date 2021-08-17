@@ -5,4 +5,13 @@
     <string name="select_engine">Select translator</string>
     <string name="cancel">Cancel</string>
     <string name="select_language">Select language</string>
+    <string name="native_lang">Your native language</string>
+    <string name="Settings">Settings</string>
+    <string name="anon">Anonymous mode</string>
+    <string name="anon_summary">Requests will be completed from developer\'s proxy, so translators won\'t know your IP address and other info (translation will be really slow)</string>
+    <string name="native_sum">Will be the language to translate the words selected through the context menu</string>
+    <string name="translator">Translator</string>
+    <string name="about">About</string>
+    <string name="developer">Developer</string>
+    <string name="thanks">Thanks to</string>
 </resources>

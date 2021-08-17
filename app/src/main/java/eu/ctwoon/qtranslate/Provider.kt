@@ -1,7 +1,6 @@
 package eu.ctwoon.qtranslate.provider
 
 import kotlinx.coroutines.*
-import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
@@ -129,11 +128,13 @@ object Provider : CoroutineScope by MainScope() {
             }
         }
     }
+
     fun detectLang(txt: String, callback: (String) -> Unit) {
         launch {
             try {
                 withContext(Dispatchers.IO) {
-                    val url = URL("https://translate.yandex.net/api/v1/tr.json/detect?srv=android&text=$txt&uuid=838743f8fe8b11eb9a030242ac130003")
+                    val url =
+                        URL("https://translate.yandex.net/api/v1/tr.json/detect?srv=android&text=$txt&uuid=838743f8fe8b11eb9a030242ac130003")
                     val http = url.openConnection() as HttpURLConnection
                     var a = http.inputStream
 
@@ -153,8 +154,7 @@ object Provider : CoroutineScope by MainScope() {
                         callback.invoke(JSONObject(response.toString())["lang"].toString())
                     }
                 }
-            }
-            catch(e: Exception) {
+            } catch (e: Exception) {
                 callback.invoke(e.message.toString())
             }
         }
