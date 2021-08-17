@@ -8,7 +8,6 @@ import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -45,6 +44,16 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         appbar.menu.getItem(0).setOnMenuItemClickListener {
             tts()
+            return@setOnMenuItemClickListener true
+        }
+
+        appbar.menu.getItem(1).setOnMenuItemClickListener {
+            notYet()
+            return@setOnMenuItemClickListener true
+        }
+
+        appbar.menu.getItem(2).setOnMenuItemClickListener {
+            notYet()
             return@setOnMenuItemClickListener true
         }
 
@@ -110,7 +119,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
-         when (item.itemId) {
+        when (item.itemId) {
             R.id.lang -> {
                 selectLanguageDialog()
             }
@@ -162,6 +171,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "jp")
         val mBuilder = AlertDialog.Builder(this@MainActivity)
         mBuilder.setTitle(getString(R.string.select_language))
+
         mBuilder.setSingleChoiceItems(listItems, -1) { dialogInterface, i ->
             ed.putString("lang", listItems[i])
             ed.apply()

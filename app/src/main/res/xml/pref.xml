@@ -9,12 +9,12 @@
             android:key="native"
             android:summary="@string/native_sum"
             android:title="@string/native_lang" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:icon="@drawable/ic_baseline_security_24"
-            android:key="anon"
-            android:summary="@string/anon_summary"
-            android:title="@string/anon" />
+        <!--        <CheckBoxPreference-->
+        <!--            android:defaultValue="false"-->
+        <!--            android:icon="@drawable/ic_baseline_security_24"-->
+        <!--            android:key="anon"-->
+        <!--            android:summary="@string/anon_summary"-->
+        <!--            android:title="@string/anon" />-->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about">
         <Preference
@@ -23,7 +23,7 @@
             app:title="@string/developer" />
         <Preference
             android:icon="@drawable/ic_baseline_star_border_24"
-            app:summary="DeepL, Google, Yandex &amp;&amp; niedrug &amp; ..."
+            app:summary="DeepL, Google, Yandex &amp; ..."
             app:title="@string/thanks" />
     </PreferenceCategory>
 </PreferenceScreen>
