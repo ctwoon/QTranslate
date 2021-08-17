@@ -9,12 +9,12 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/star"
+        android:id="@+id/lang"
         android:icon="@drawable/ic_baseline_star_border_24"
         android:title="star"
         app:showAsAction="always" />
     <item
-        android:id="@+id/history"
+        android:id="@+id/engine"
         android:icon="@drawable/ic_outline_history_24"
         android:title="starred"
         app:showAsAction="ifRoom" />

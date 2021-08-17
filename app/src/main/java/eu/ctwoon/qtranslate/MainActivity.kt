@@ -5,8 +5,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.speech.RecognizerIntent
+import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -22,26 +24,29 @@ import eu.ctwoon.qtranslate.provider.Provider.googleTranslate
 import eu.ctwoon.qtranslate.provider.Provider.yandexTranslate
 import java.util.*
 import kotlin.concurrent.schedule
-import androidx.core.app.ActivityCompat.startActivityForResult
-import android.R.attr.data
 
 
+class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
+    private var tts: TextToSpeech? = null
 
-
-
-
-
-class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        var ed = findViewById<EditText>(R.id.ed)
+        val ed = findViewById<EditText>(R.id.ed)
 
-        val bottomBar = findViewById<BottomAppBar>(R.id.bottom_app_bar)
-        bottomBar.replaceMenu(R.menu.bottom)
+        tts = TextToSpeech(this, this)
+
+        val appbar = findViewById<BottomAppBar>(R.id.bottom_app_bar)
+
+        appbar.replaceMenu(R.menu.bottom)
+
+        appbar.menu.getItem(0).setOnMenuItemClickListener {
+            tts()
+            return@setOnMenuItemClickListener true
+        }
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { getSpeechInput() }
 
@@ -105,21 +110,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
-        return when (item.itemId) {
+         when (item.itemId) {
             R.id.lang -> {
                 selectLanguageDialog()
-                true
             }
             R.id.engine -> {
                 selectEngineDialog()
-                true
             }
             R.id.settings -> {
                 startActivity(Intent(this, Settings::class.java))
-                true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
+        return true
     }
 
     private fun selectEngineDialog() {
@@ -177,8 +181,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getSpeechInput() {
-        var intent
-        =  Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        var intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
             RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
@@ -201,16 +204,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int,
-                                  resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int, data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10) {
             if (resultCode == RESULT_OK && data != null) {
                 var result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
                 findViewById<EditText>(R.id.ed).setText(
-                    Objects.requireNonNull(result)?.get(0)
+                    Objects.requireNonNull(result)!![0]
                 )
             }
         }
+    }
+
+    override fun onInit(status: Int) {}
+
+    fun tts() {
+        var a = findViewById<EditText>(R.id.ed1).text
+        val prefs: SharedPreferences = PreferenceManager
+            .getDefaultSharedPreferences(this)
+        tts!!.language = Locale(prefs.getString("lang", "en"))
+        tts!!.speak(a, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    fun notYet() {
+        Toast.makeText(this, "not yet implemented =(", Toast.LENGTH_SHORT).show()
     }
 }
