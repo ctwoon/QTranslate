@@ -16,11 +16,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
-import eu.ctwoon.qtranslate.provider.Provider.deeplTranslate
-import eu.ctwoon.qtranslate.provider.Provider.detectLang
-import eu.ctwoon.qtranslate.provider.Provider.googleTranslate
-import eu.ctwoon.qtranslate.provider.Provider.yandexTranslate
+import eu.ctwoon.qtranslate.Provider.detectLang
+import eu.ctwoon.qtranslate.Provider.translateText
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -89,23 +88,22 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun translate(txt: String) {
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
-        var a = prefs.getInt("trans", 2)
         var lang = prefs.getString("lang", "en")
         var ed1 = findViewById<EditText>(R.id.ed1)
         // тут короче перевод сам ауе
-        when (a) {
-            2 -> deeplTranslate(txt, lang) { txt ->
-                ed1.setText(txt)
-            }
-            1 -> yandexTranslate(txt, lang) { txt ->
-                ed1.setText(txt)
-            }
-            else -> googleTranslate(txt, lang) { txt ->
+        translateText(txt, lang, this) {txt ->
+            if (txt.contains("to resolve host")) {
+                ed1.setText(getString(R.string.no_internet))
+            } else if (txt.contains("www2.deepl.com") || txt.contains("Value <!DOCTYPE")) {
+                ed1.setText(getString(R.string.rate_limit))
+            } else {
                 ed1.setText(txt)
             }
         }
         // а тут получаем какого языка текст типо был
         detectLang(txt) { txt ->
+            if (txt.contains("Unable to resolve host"))
+                return@detectLang
             findViewById<TextInputLayout>(R.id.textField).hint =
                 getString(R.string.input_text) + " · " + txt
         }
