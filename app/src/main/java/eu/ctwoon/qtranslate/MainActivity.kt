@@ -8,7 +8,6 @@ import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -176,7 +175,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             .getDefaultSharedPreferences(this)
         val ed: SharedPreferences.Editor = prefs.edit()
 
-        val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "jp")
+        val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt")
         val mBuilder = AlertDialog.Builder(this@MainActivity)
         mBuilder.setTitle(getString(R.string.select_language))
 
