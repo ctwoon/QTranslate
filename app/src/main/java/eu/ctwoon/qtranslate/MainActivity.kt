@@ -107,6 +107,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             findViewById<TextInputLayout>(R.id.textField).hint =
                 getString(R.string.input_text) + " · " + txt
         }
+        val a = getString(R.string.trans_text) + " · " + lang
+        if (findViewById<TextInputLayout>(R.id.textField1).hint != a) {
+            findViewById<TextInputLayout>(R.id.textField1).hint = a
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
