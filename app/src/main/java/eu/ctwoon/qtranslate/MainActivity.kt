@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -16,7 +17,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import eu.ctwoon.qtranslate.Provider.detectLang
 import eu.ctwoon.qtranslate.Provider.translateText
@@ -30,10 +30,12 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.onNewIntent(intent)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
         val ed = findViewById<EditText>(R.id.ed)
+
 
         tts = TextToSpeech(this, this)
 
@@ -58,6 +60,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { getSpeechInput() }
 
+        if (intent?.getStringExtra("CONTEXT_TEXT").toString() != "null") {
+            onNewIntent(intent)
+        }
+
         findViewById<EditText>(R.id.ed).addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
@@ -73,22 +79,22 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 s: CharSequence, start: Int,
                 before: Int, count: Int
             ) {
-                var a = s.toString()
+                val a = s.toString()
                 if (a == "")
                     return
                 Timer().schedule(600) {
                     if (a == ed.text.toString()) {
-                        translate(s.toString())
+                        translate(s.toString(), false)
                     }
                 }
             }
         })
     }
 
-    private fun translate(txt: String) {
+    private fun translate(txt: String, native: Boolean) {
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
-        var lang = prefs.getString("lang", "en")
+        var lang = if (native) prefs.getString("native", "en") else prefs.getString("lang", "en")
         var ed1 = findViewById<EditText>(R.id.ed1)
         // тут короче перевод сам ауе
         translateText(txt, lang, this) {txt ->
@@ -233,7 +239,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {}
 
-    fun tts() {
+    private fun tts() {
         var a = findViewById<EditText>(R.id.ed1).text
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
@@ -241,7 +247,15 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts!!.speak(a, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
-    fun notYet() {
+    private fun notYet() {
         Toast.makeText(this, "not yet implemented =(", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        val ed = findViewById<EditText>(R.id.ed)
+        ed.requestFocus()
+        ed.setText(intent?.getStringExtra("CONTEXT_TEXT"))
+        translate(ed.text.toString(), true)
     }
 }

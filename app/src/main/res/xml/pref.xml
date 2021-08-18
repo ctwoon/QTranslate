@@ -7,6 +7,7 @@
             android:entryValues="@array/entry_values"
             android:icon="@drawable/ic_baseline_language_24"
             android:key="native"
+            android:defaultValue="en"
             android:summary="@string/native_sum"
             android:title="@string/native_lang" />
         <!--        <CheckBoxPreference-->
