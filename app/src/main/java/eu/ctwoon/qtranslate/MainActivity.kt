@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         translateText(txt, lang, this) {txt ->
             if (txt.contains("to resolve host")) {
                 ed1.setText(getString(R.string.no_internet))
-            } else if (txt.contains("www2.deepl.com") || txt.contains("Value <!DOCTYPE")) {
+            } else if (txt.contains("www2.deepl.com") || txt.contains("Value <!DOCTYPE") || txt.contains("translate.yandex") || txt.contains("translate.googleapis")) {
                 ed1.setText(getString(R.string.rate_limit))
             } else {
                 ed1.setText(txt)
