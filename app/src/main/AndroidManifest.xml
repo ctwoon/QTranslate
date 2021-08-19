@@ -25,12 +25,13 @@
             android:name=".Settings"
             android:exported="true"
             android:label="@string/Settings"></activity>
-        <activity android:name=".ContextMenuSelector"
+        <activity
+            android:name=".ContextMenuSelector"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain"/>
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
     </application>

@@ -3,7 +3,6 @@ package eu.ctwoon.qtranslate
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.text.Editable
@@ -14,6 +13,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
@@ -21,7 +21,6 @@ import eu.ctwoon.qtranslate.Provider.detectLang
 import eu.ctwoon.qtranslate.Provider.translateText
 import java.util.*
 import kotlin.concurrent.schedule
-
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -93,24 +92,27 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun translate(txt: String, native: Boolean) {
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
-        var lang = if (native) prefs.getString("native", "en") else prefs.getString("lang", "en")
-        var ed1 = findViewById<EditText>(R.id.ed1)
+        val lang = if (native) prefs.getString("native", "en") else prefs.getString("lang", "en")
+        val ed1 = findViewById<EditText>(R.id.ed1)
         // тут короче перевод сам ауе
-        translateText(txt, lang, this) {txt ->
-            if (txt.contains("to resolve host")) {
+        translateText(txt, lang, this) {
+            if (it.contains("to resolve host")) {
                 ed1.setText(getString(R.string.no_internet))
-            } else if (txt.contains("www2.deepl.com") || txt.contains("Value <!DOCTYPE") || txt.contains("translate.yandex") || txt.contains("translate.googleapis")) {
+            } else if (it.contains("www2.deepl.com") || it.contains("Value <!DOCTYPE") || it.contains(
+                    "translate.yandex"
+                ) || it.contains("translate.googleapis")
+            ) {
                 ed1.setText(getString(R.string.rate_limit))
             } else {
-                ed1.setText(txt)
+                ed1.setText(it)
             }
         }
         // а тут получаем какого языка текст типо был
-        detectLang(txt) { txt ->
-            if (txt.contains("Unable to resolve host"))
+        detectLang(txt) {
+            if (it.contains("to resolve host") || it.contains("yandex"))
                 return@detectLang
             findViewById<TextInputLayout>(R.id.textField).hint =
-                getString(R.string.input_text) + " · " + txt
+                getString(R.string.input_text) + " · " + it
         }
         val a = getString(R.string.trans_text) + " · " + lang
         if (findViewById<TextInputLayout>(R.id.textField1).hint != a) {
@@ -207,7 +209,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun getSpeechInput() {
-        var intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
             RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
@@ -237,7 +239,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10) {
             if (resultCode == RESULT_OK && data != null) {
-                var result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
                 findViewById<EditText>(R.id.ed).setText(
                     Objects.requireNonNull(result)!![0]
                 )
@@ -248,10 +250,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onInit(status: Int) {}
 
     private fun tts() {
-        var a = findViewById<EditText>(R.id.ed1).text
+        val a = findViewById<EditText>(R.id.ed1).text
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
-        tts!!.language = Locale(prefs.getString("lang", "en"))
+        tts!!.language = Locale(prefs.getString("lang", "en").toString())
         tts!!.speak(a, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 

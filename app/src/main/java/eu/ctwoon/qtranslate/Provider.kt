@@ -2,7 +2,7 @@ package eu.ctwoon.qtranslate
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -23,9 +23,9 @@ object Provider : CoroutineScope by MainScope() {
 
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(context)
-        var a = prefs.getInt("trans", 2)
+        val a = prefs.getInt("trans", 2)
 
-        when (a){
+        when (a) {
             2 -> {
                 launch {
                     try {
@@ -45,7 +45,7 @@ object Provider : CoroutineScope by MainScope() {
 
                             stream.write(out)
 
-                            var a = http.inputStream
+                            val a = http.inputStream
 
                             val br = BufferedReader(
                                 InputStreamReader(
@@ -60,8 +60,20 @@ object Provider : CoroutineScope by MainScope() {
                                 currentLine
                             )
 
-                            var aa =
-                                JSONObject(JSONArray(JSONObject(JSONArray(JSONObject(JSONObject(response.toString())["result"].toString())["translations"].toString())[0].toString())["beams"].toString())[0].toString())["postprocessed_sentence"].toString()
+                            val aa =
+                                JSONObject(
+                                    JSONArray(
+                                        JSONObject(
+                                            JSONArray(
+                                                JSONObject(
+                                                    JSONObject(
+                                                        response.toString()
+                                                    )["result"].toString()
+                                                )["translations"].toString()
+                                            )[0].toString()
+                                        )["beams"].toString()
+                                    )[0].toString()
+                                )["postprocessed_sentence"].toString()
 
                             withContext(Dispatchers.Main) {
                                 callback.invoke(aa)
@@ -83,7 +95,7 @@ object Provider : CoroutineScope by MainScope() {
                             http.doOutput = true
                             http.setRequestProperty("Content-Length", "0")
 
-                            var a = http.inputStream
+                            val a = http.inputStream
 
                             val br = BufferedReader(
                                 InputStreamReader(
@@ -100,7 +112,8 @@ object Provider : CoroutineScope by MainScope() {
 
                             withContext(Dispatchers.Main) {
                                 callback.invoke(
-                                    JSONObject(response.toString()).optJSONArray("text")!!.getString(0)
+                                    JSONObject(response.toString()).optJSONArray("text")!!
+                                        .getString(0)
                                 )
                             }
                         }
@@ -118,7 +131,8 @@ object Provider : CoroutineScope by MainScope() {
                     try {
 
                         val request: Request = Request.Builder()
-                            .url("$api_translate_url&tl=$tl&q=${URLEncoder.encode(txt, "UTF-8")}").build()
+                            .url("$api_translate_url&tl=$tl&q=${URLEncoder.encode(txt, "UTF-8")}")
+                            .build()
                         val sb = StringBuilder()
 
                         withContext(Dispatchers.IO) {
@@ -145,7 +159,7 @@ object Provider : CoroutineScope by MainScope() {
                     val url =
                         URL("https://translate.yandex.net/api/v1/tr.json/detect?srv=android&text=$txt&uuid=838743f8fe8b11eb9a030242ac130003")
                     val http = url.openConnection() as HttpURLConnection
-                    var a = http.inputStream
+                    val a = http.inputStream
 
                     val br = BufferedReader(
                         InputStreamReader(
