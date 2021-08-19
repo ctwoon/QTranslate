@@ -126,7 +126,7 @@ object OTA : CoroutineScope by MainScope() {
     fun downloadApk(context: Context) {
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.cancel(1337)
-        val request = DownloadManager.Request(Uri.parse("https://github.com/ctwoon/qtranslate/releases/latest/download/app.apk"))
+        val request = DownloadManager.Request(Uri.parse("https://github.com/ctwoon/qtranslate/releases/latest/download/app-release.apk"))
 
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
         request.setTitle("QTranslate v$version")
