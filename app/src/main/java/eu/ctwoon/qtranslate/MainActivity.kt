@@ -175,11 +175,20 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             .getDefaultSharedPreferences(this)
         val ed: SharedPreferences.Editor = prefs.edit()
 
+        val a = prefs.getString("lang", "en")
+
+        var mm = 0
+
         val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt")
+
+        for (i in listItems.indices) {
+            if (a == listItems[i])
+                mm = i
+        }
         val mBuilder = AlertDialog.Builder(this@MainActivity)
         mBuilder.setTitle(getString(R.string.select_language))
 
-        mBuilder.setSingleChoiceItems(listItems, -1) { dialogInterface, i ->
+        mBuilder.setSingleChoiceItems(listItems, mm) { dialogInterface, i ->
             ed.putString("lang", listItems[i])
             ed.apply()
             dialogInterface.dismiss()
