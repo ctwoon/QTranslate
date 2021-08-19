@@ -36,7 +36,7 @@ object Provider : CoroutineScope by MainScope() {
                             }
                         }
                     } catch (e: Exception) {
-                        callback.invoke(e.message.toString())
+                        callback.invoke("qtranslate error" + e.message.toString())
                     }
                 }
             }
@@ -75,7 +75,7 @@ object Provider : CoroutineScope by MainScope() {
                         }
 
                     } catch (e: Exception) {
-                        callback.invoke(e.message.toString())
+                        callback.invoke("qtranslate error" +  e.message.toString())
                     }
                 }
             }
@@ -101,7 +101,7 @@ object Provider : CoroutineScope by MainScope() {
 
                         callback.invoke(sb.toString())
                     } catch (e: Exception) {
-                        callback.invoke(e.message.toString())
+                        callback.invoke("qtranslate error" +  e.message.toString())
                     }
                 }
             }
@@ -134,7 +134,7 @@ object Provider : CoroutineScope by MainScope() {
                     }
                 }
             } catch (e: Exception) {
-                callback.invoke(e.message.toString())
+                callback.invoke("qtranslate error" +  e.message.toString())
             }
         }
     }

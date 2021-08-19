@@ -7,6 +7,7 @@ import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             download(this, false)
         }
 
-        findViewById<EditText>(R.id.ed).addTextChangedListener(object : TextWatcher {
+        ed.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
             }
@@ -88,43 +89,65 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 s: CharSequence, start: Int,
                 before: Int, count: Int
             ) {
-                val a = s.toString()
-                if (a == "")
-                    return
-                Timer().schedule(600) {
-                    if (a == ed.text.toString()) {
-                        translate(s.toString(), false)
-                    }
-                }
+                if (ed.tag == null)
+                    onSmthEdited(s, false)
+            }
+        })
+
+        ed1.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+            }
+
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if (ed1.tag == null)
+                    onSmthEdited(s, true)
             }
         })
     }
 
-    private fun translate(txt: String, native: Boolean) {
+    private fun translate(txt: String, native: Boolean, revers: Boolean) {
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
         val lang = if (native) prefs.getString("native", "en") else prefs.getString("lang", "en")
         val ed1 = findViewById<EditText>(R.id.ed1)
-        // тут короче перевод сам ауе
-        translateText(txt, lang, this) {
-            if (it.contains("to resolve host")) {
-                ed1.setText(getString(R.string.no_internet))
-            } else if (it.contains("www2.deepl.com") || it.contains("Value <!DOCTYPE") || it.contains(
-                    "translate.yandex"
-                ) || it.contains("translate.googleapis")
-            ) {
-                ed1.setText(getString(R.string.rate_limit))
-            } else {
-                ed1.setText(it)
-            }
-        }
+        val ed = findViewById<EditText>(R.id.ed)
+        val field = findViewById<TextInputLayout>(R.id.textField)
         // а тут получаем какого языка текст типо был
-        detectLang(txt) {
+        detectLang(ed.text.toString()) {
             if (it.contains("to resolve host") || it.contains("yandex"))
                 return@detectLang
-            findViewById<TextInputLayout>(R.id.textField).hint =
+            field.hint =
                 getString(R.string.input_text) + " · " + it
+            Log.d("AndroidRuntime", it)
+            translateText(txt, if (revers) it else lang, this) {
+                val edi = if (revers) ed else ed1
+                edi.tag = "n"
+                if (it.contains("to resolve host")) {
+                    edi.setText(getString(R.string.no_internet))
+                } else if (it.contains("www2.deepl.com") || it.contains("Value <!DOCTYPE") || it.contains(
+                        "translate.yandex"
+                    ) || it.contains("translate.googleapis")
+                ) {
+                    edi.setText(getString(R.string.rate_limit))
+                } else if (it.contains("qtranslate error")) {
+                    Log.d("AndroidRuntime", it)
+                } else {
+                    edi.setText(it)
+                }
+                edi.tag = null
+            }
         }
+
         val a = getString(R.string.trans_text) + " · " + lang
         if (findViewById<TextInputLayout>(R.id.textField1).hint != a) {
             findViewById<TextInputLayout>(R.id.textField1).hint = a
@@ -162,13 +185,17 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         val a = prefs.getInt("trans", 2)
 
+        val edi = findViewById<EditText>(R.id.ed)
+
+        val edi2 = findViewById<EditText>(R.id.ed1)
+
         val listItems = arrayOf("Google", "Yandex", "Deepl")
         val mBuilder = AlertDialog.Builder(this@MainActivity)
         mBuilder.setTitle(getString(R.string.select_engine))
         mBuilder.setSingleChoiceItems(listItems, a) { dialogInterface, i ->
             ed.putInt("trans", i)
             ed.apply()
-            translate(findViewById<EditText>(R.id.ed).text.toString(), false)
+            translate(findViewById<EditText>(R.id.ed).text.toString(), false, !edi.isFocused && edi2.isFocused)
             dialogInterface.dismiss()
         }
 
@@ -195,6 +222,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt")
 
+        val edi = findViewById<EditText>(R.id.ed)
+
+        val edi2 = findViewById<EditText>(R.id.ed1)
+
         for (i in listItems.indices) {
             if (a == listItems[i])
                 mm = i
@@ -205,7 +236,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         mBuilder.setSingleChoiceItems(listItems, mm) { dialogInterface, i ->
             ed.putString("lang", listItems[i])
             ed.apply()
-            translate(findViewById<EditText>(R.id.ed).text.toString(), false)
+            translate(findViewById<EditText>(R.id.ed).text.toString(), false, !edi.isFocused && edi2.isFocused )
             dialogInterface.dismiss()
         }
 
@@ -254,7 +285,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (resultCode == RESULT_OK && data != null) {
                 val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
                 findViewById<EditText>(R.id.ed).setText(
-                    Objects.requireNonNull(result)!![0]
+                    Objects.requireNonNull(result)?.get(0)
                 )
             }
         }
@@ -279,6 +310,19 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val ed = findViewById<EditText>(R.id.ed)
         ed.requestFocus()
         ed.setText(intent?.getStringExtra("CONTEXT_TEXT"))
-        translate(ed.text.toString(), true)
+        translate(ed.text.toString(), true, false)
+    }
+
+    fun onSmthEdited(s: CharSequence, reversed: Boolean) {
+        val ed = findViewById<EditText>(R.id.ed)
+        val ed1 = findViewById<EditText>(R.id.ed1)
+        val a = s.toString()
+        if (a == "")
+            return
+        Timer().schedule(600) {
+            if (a == if (reversed) ed1.text.toString() else ed.text.toString()) {
+                translate(s.toString(), false, reversed)
+            }
+        }
     }
 }
