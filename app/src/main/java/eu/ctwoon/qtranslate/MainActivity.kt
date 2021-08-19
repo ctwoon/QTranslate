@@ -21,6 +21,7 @@ import eu.ctwoon.qtranslate.Provider.detectLang
 import eu.ctwoon.qtranslate.Provider.translateText
 import java.util.*
 import kotlin.concurrent.schedule
+import eu.ctwoon.qtranslate.OTA.download
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -68,6 +69,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         if (intent?.getStringExtra("CONTEXT_TEXT").toString() != "null") {
             onNewIntent(intent)
+        } else {
+            download(this, false)
         }
 
         findViewById<EditText>(R.id.ed).addTextChangedListener(object : TextWatcher {

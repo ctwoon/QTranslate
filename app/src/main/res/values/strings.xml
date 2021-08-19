@@ -17,4 +17,6 @@
     <string name="no_internet">No internet connection</string>
     <string name="rate_limit">Rate limit! Try to use other provider</string>
     <string name="speech_to_text">Speech to text</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="download">Download</string>
 </resources>
