@@ -168,6 +168,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         mBuilder.setSingleChoiceItems(listItems, a) { dialogInterface, i ->
             ed.putInt("trans", i)
             ed.apply()
+            translate(findViewById<EditText>(R.id.ed).text.toString(), false)
             dialogInterface.dismiss()
         }
 
@@ -204,6 +205,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         mBuilder.setSingleChoiceItems(listItems, mm) { dialogInterface, i ->
             ed.putString("lang", listItems[i])
             ed.apply()
+            translate(findViewById<EditText>(R.id.ed).text.toString(), false)
             dialogInterface.dismiss()
         }
 
