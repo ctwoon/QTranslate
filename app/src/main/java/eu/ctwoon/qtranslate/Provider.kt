@@ -6,15 +6,14 @@ import androidx.preference.PreferenceManager
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-import java.nio.charset.StandardCharsets
+import org.deepl.DeepLTranslater
+import java.util.*
 
 object Provider : CoroutineScope by MainScope() {
 
@@ -30,53 +29,10 @@ object Provider : CoroutineScope by MainScope() {
                 launch {
                     try {
                         withContext(Dispatchers.IO) {
-                            val url = URL("https://www2.deepl.com/jsonrpc")
-                            val http = url.openConnection() as HttpURLConnection
-                            http.requestMethod = "POST"
-                            http.doOutput = true
-                            http.setRequestProperty("Content-type", "application/json")
-
-                            val data =
-                                "{\"jsonrpc\":\"2.0\",\"method\": \"LMT_handle_jobs\",\"params\":{\"jobs\":[{\"kind\":\"default\",\"raw_en_sentence\":\"$txt\",\"raw_en_context_before\":[],\"raw_en_context_after\":[],\"preferred_num_beams\":4,\"quality\":\"fast\"}],\"lang\":{\"source_lang_user_selected\":\"auto\",\"target_lang\":\"$tl\"},\"priority\":-1,\"commonJobParams\":{},\"timestamp\":1602790014301}}"
-
-                            val out: ByteArray = data.toByteArray(StandardCharsets.UTF_8)
-
-                            val stream: OutputStream = http.outputStream
-
-                            stream.write(out)
-
-                            val a = http.inputStream
-
-                            val br = BufferedReader(
-                                InputStreamReader(
-                                    a
-                                )
-                            )
-
-                            val response = java.lang.StringBuilder()
-                            var currentLine: String?
-
-                            while (br.readLine().also { currentLine = it } != null) response.append(
-                                currentLine
-                            )
-
-                            val aa =
-                                JSONObject(
-                                    JSONArray(
-                                        JSONObject(
-                                            JSONArray(
-                                                JSONObject(
-                                                    JSONObject(
-                                                        response.toString()
-                                                    )["result"].toString()
-                                                )["translations"].toString()
-                                            )[0].toString()
-                                        )["beams"].toString()
-                                    )[0].toString()
-                                )["postprocessed_sentence"].toString()
-
+                            val a = DeepLTranslater().translate(txt, "auto",
+                                tl?.uppercase(Locale.getDefault()), null)
                             withContext(Dispatchers.Main) {
-                                callback.invoke(aa)
+                                callback.invoke(a)
                             }
                         }
                     } catch (e: Exception) {
