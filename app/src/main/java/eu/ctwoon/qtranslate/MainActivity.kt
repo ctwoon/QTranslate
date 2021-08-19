@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         val ed = findViewById<EditText>(R.id.ed)
 
+        val ed1 = findViewById<EditText>(R.id.ed1)
 
         tts = TextToSpeech(this, this)
 
@@ -54,6 +55,13 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         appbar.menu.getItem(2).setOnMenuItemClickListener {
             notYet()
             return@setOnMenuItemClickListener true
+        }
+
+        val tf = findViewById<TextInputLayout>(R.id.textField)
+
+        tf.setEndIconOnClickListener {
+            ed.setText("")
+            ed1.setText("")
         }
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { getSpeechInput() }

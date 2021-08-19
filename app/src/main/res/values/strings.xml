@@ -16,4 +16,5 @@
     <string name="thanks">Thanks to</string>
     <string name="no_internet">No internet connection</string>
     <string name="rate_limit">Rate limit! Try to use other provider</string>
+    <string name="speech_to_text">Speech to text</string>
 </resources>
