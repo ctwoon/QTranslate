@@ -125,13 +125,13 @@ object Provider : CoroutineScope by MainScope() {
             }
             else -> {
                 launch {
-                    val api_translate_url =
+                    val apitran =
                         "https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&dj=1&sl=auto"
 
                     try {
 
                         val request: Request = Request.Builder()
-                            .url("$api_translate_url&tl=$tl&q=${URLEncoder.encode(txt, "UTF-8")}")
+                            .url("$apitran&tl=$tl&q=${URLEncoder.encode(txt, "UTF-8")}")
                             .build()
                         val sb = StringBuilder()
 
