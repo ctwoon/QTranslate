@@ -305,7 +305,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         requestCode: Int,
         resultCode: Int, data: Intent?
     ) {
-        super.onActivityResult(requestCode, resultCode, data)
+        super.build.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10) {
             if (resultCode == RESULT_OK && data != null) {
                 val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
