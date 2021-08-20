@@ -6,13 +6,13 @@ import androidx.preference.PreferenceManager
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.deepl.DeepLTranslater
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-import org.deepl.DeepLTranslater
 import java.util.*
 
 object Provider : CoroutineScope by MainScope() {
@@ -29,8 +29,10 @@ object Provider : CoroutineScope by MainScope() {
                 launch {
                     try {
                         withContext(Dispatchers.IO) {
-                            val a = DeepLTranslater().translate(txt, "auto",
-                                tl?.uppercase(Locale.getDefault()), null)
+                            val a = DeepLTranslater().translate(
+                                txt, "auto",
+                                tl?.uppercase(Locale.getDefault()), null
+                            )
                             withContext(Dispatchers.Main) {
                                 callback.invoke(a)
                             }
@@ -75,7 +77,7 @@ object Provider : CoroutineScope by MainScope() {
                         }
 
                     } catch (e: Exception) {
-                        callback.invoke("qtranslate error" +  e.message.toString())
+                        callback.invoke("qtranslate error" + e.message.toString())
                     }
                 }
             }
@@ -101,7 +103,7 @@ object Provider : CoroutineScope by MainScope() {
 
                         callback.invoke(sb.toString())
                     } catch (e: Exception) {
-                        callback.invoke("qtranslate error" +  e.message.toString())
+                        callback.invoke("qtranslate error" + e.message.toString())
                     }
                 }
             }
@@ -134,7 +136,7 @@ object Provider : CoroutineScope by MainScope() {
                     }
                 }
             } catch (e: Exception) {
-                callback.invoke("qtranslate error" +  e.message.toString())
+                callback.invoke("qtranslate error" + e.message.toString())
             }
         }
     }

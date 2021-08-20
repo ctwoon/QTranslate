@@ -32,7 +32,9 @@ object OTA : CoroutineScope by MainScope() {
         launch(handler) {
             try {
                 val request: Request =
-                    Request.Builder().url("https://api.github.com/repos/ctwoon/qtranslate/releases/latest").build()
+                    Request.Builder()
+                        .url("https://api.github.com/repos/ctwoon/qtranslate/releases/latest")
+                        .build()
                 withContext(Dispatchers.IO) {
                     val response = OkHttpClient().newCall(request).execute()
                     parseddString = response.body!!.string()
@@ -75,12 +77,15 @@ object OTA : CoroutineScope by MainScope() {
             } else if (needDownload && !b) {
                 context.registerReceiver(broadcastReceiver, IntentFilter("OTA_NOTIF"))
                 if (Build.VERSION.SDK_INT >= 26) {
-                    val channel = NotificationChannel("channel01", "name",
-                        NotificationManager.IMPORTANCE_HIGH) // for heads up notifications
+                    val channel = NotificationChannel(
+                        "channel01", "name",
+                        NotificationManager.IMPORTANCE_HIGH
+                    ) // for heads up notifications
 
                     channel.description = "description"
 
-                    val notificationManager: NotificationManager? = context.getSystemService(NotificationManager::class.java)
+                    val notificationManager: NotificationManager? =
+                        context.getSystemService(NotificationManager::class.java)
 
                     notificationManager!!.createNotificationChannel(channel)
                 }
@@ -98,7 +103,11 @@ object OTA : CoroutineScope by MainScope() {
                     .setContentText(changelog)
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .addAction(R.drawable.ic_baseline_arrow_downward_24, context.getString(R.string.download), pendingIntentDownload)
+                    .addAction(
+                        R.drawable.ic_baseline_arrow_downward_24,
+                        context.getString(R.string.download),
+                        pendingIntentDownload
+                    )
                     .build()
 
                 val notificationManager = NotificationManagerCompat.from(context)
@@ -126,12 +135,17 @@ object OTA : CoroutineScope by MainScope() {
     fun downloadApk(context: Context) {
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.cancel(1337)
-        val request = DownloadManager.Request(Uri.parse("https://github.com/ctwoon/qtranslate/releases/latest/download/app-release.apk"))
+        val request =
+            DownloadManager.Request(Uri.parse("https://github.com/ctwoon/qtranslate/releases/latest/download/app-release.apk"))
 
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
         request.setTitle("QTranslate v$version")
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-        request.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "ota.apk")
+        request.setDestinationInExternalFilesDir(
+            context,
+            Environment.DIRECTORY_DOWNLOADS,
+            "ota.apk"
+        )
 
         val manager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         manager.enqueue(request)

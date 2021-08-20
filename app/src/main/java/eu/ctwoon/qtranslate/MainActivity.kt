@@ -1,9 +1,7 @@
 package eu.ctwoon.qtranslate
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.ColorStateList
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -19,17 +17,16 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.getColorOrThrow
 import androidx.core.content.res.getDrawableOrThrow
 import androidx.preference.PreferenceManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
+import eu.ctwoon.qtranslate.OTA.download
 import eu.ctwoon.qtranslate.Provider.detectLang
 import eu.ctwoon.qtranslate.Provider.translateText
 import java.util.*
 import kotlin.concurrent.schedule
-import eu.ctwoon.qtranslate.OTA.download
 
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -215,7 +212,11 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         mBuilder.setSingleChoiceItems(listItems, a) { dialogInterface, i ->
             ed.putInt("trans", i)
             ed.apply()
-            translate(findViewById<EditText>(R.id.ed).text.toString(), false, !edi.isFocused && edi2.isFocused)
+            translate(
+                findViewById<EditText>(R.id.ed).text.toString(),
+                false,
+                !edi.isFocused && edi2.isFocused
+            )
             dialogInterface.dismiss()
         }
 
@@ -256,7 +257,11 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         mBuilder.setSingleChoiceItems(listItems, mm) { dialogInterface, i ->
             ed.putString("lang", listItems[i])
             ed.apply()
-            translate(findViewById<EditText>(R.id.ed).text.toString(), false, !edi.isFocused && edi2.isFocused )
+            translate(
+                findViewById<EditText>(R.id.ed).text.toString(),
+                false,
+                !edi.isFocused && edi2.isFocused
+            )
             dialogInterface.dismiss()
         }
 
