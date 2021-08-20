@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">QTranslate</string>
+    <string name="input_text">Исходный текст</string>
+    <string name="trans_text">Переведенный текст</string>
+    <string name="select_engine">Выберите переводчик</string>
+    <string name="cancel">Отмена</string>
+    <string name="select_language">Выберите язык</string>
+    <string name="native_lang">Родной язык</string>
+    <string name="Settings">Настройки</string>
+    <string name="anon">Anonymous mode</string>
+    <string name="anon_summary">Requests will be completed from developer\'s proxy, so translators won\'t know your IP address and other info (translation will be really slow)</string>
+    <string name="native_sum">Текст, полученый через контекстное меню будет переведен на этот язык</string>
+    <string name="translator">Переводчик</string>
+    <string name="about">О приложении</string>
+    <string name="developer">Разработчик</string>
+    <string name="thanks">Спасибо</string>
+    <string name="no_internet">Отсутствует интернет-соединение</string>
+    <string name="rate_limit">Ошибка! Попробуйте использовать другой переводчик</string>
+    <string name="speech_to_text">Речь в текст</string>
+    <string name="something_went_wrong">Что-то пошло не так</string>
+    <string name="download">Скачать</string>
+    <string name="fallback_lang">Запасной язык</string>
+    <string name="fallback_sum">Будет использован, если язык назначения совпадает с языком оригинального текста</string>
+    <string name="not_yet_implemented">пока не разработано =(</string>
+</resources>

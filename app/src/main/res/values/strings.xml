@@ -5,7 +5,7 @@
     <string name="select_engine">Select translator</string>
     <string name="cancel">Cancel</string>
     <string name="select_language">Select language</string>
-    <string name="native_lang">Your native language</string>
+    <string name="native_lang">Native language</string>
     <string name="Settings">Settings</string>
     <string name="anon">Anonymous mode</string>
     <string name="anon_summary">Requests will be completed from developer\'s proxy, so translators won\'t know your IP address and other info (translation will be really slow)</string>
@@ -21,4 +21,5 @@
     <string name="download">Download</string>
     <string name="fallback_lang">Fallback language</string>
     <string name="fallback_sum">Will be used if input text language is same as target language</string>
+    <string name="not_yet_implemented">not yet implemeted =(</string>
 </resources>

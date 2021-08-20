@@ -241,7 +241,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         var mm = 0
 
-        val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt")
+        val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt", "pl", "cz")
 
         val edi = findViewById<EditText>(R.id.ed)
 
@@ -305,7 +305,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         requestCode: Int,
         resultCode: Int, data: Intent?
     ) {
-        super.build.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10) {
             if (resultCode == RESULT_OK && data != null) {
                 val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
@@ -327,7 +327,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun notYet() {
-        Toast.makeText(this, "not yet implemented =(", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.not_yet_implemented), Toast.LENGTH_SHORT).show()
     }
 
     override fun onNewIntent(intent: Intent?) {
