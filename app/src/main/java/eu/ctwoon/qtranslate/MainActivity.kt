@@ -1,19 +1,26 @@
 package eu.ctwoon.qtranslate
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.ColorStateList
+import android.graphics.drawable.Animatable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.getColorOrThrow
+import androidx.core.content.res.getDrawableOrThrow
 import androidx.preference.PreferenceManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,6 +30,7 @@ import eu.ctwoon.qtranslate.Provider.translateText
 import java.util.*
 import kotlin.concurrent.schedule
 import eu.ctwoon.qtranslate.OTA.download
+
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -37,6 +45,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val ed = findViewById<EditText>(R.id.ed)
 
         val ed1 = findViewById<EditText>(R.id.ed1)
+
 
         tts = TextToSpeech(this, this)
 
@@ -118,10 +127,15 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun translate(txt: String, native: Boolean, revers: Boolean) {
         val prefs: SharedPreferences = PreferenceManager
             .getDefaultSharedPreferences(this)
-        val lang = if (native) prefs.getString("native", "en") else prefs.getString("lang", "en")
+        var lang = if (native) prefs.getString("native", "en") else prefs.getString("lang", "en")
         val ed1 = findViewById<EditText>(R.id.ed1)
         val ed = findViewById<EditText>(R.id.ed)
         val field = findViewById<TextInputLayout>(R.id.textField)
+
+        val tf1 = findViewById<TextInputLayout>(R.id.textField1)
+
+        val draw = getProgressBarDrawable()
+
         // а тут получаем какого языка текст типо был
         detectLang(ed.text.toString()) {
             if (it.contains("to resolve host") || it.contains("yandex"))
@@ -129,9 +143,16 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             field.hint =
                 getString(R.string.input_text) + " · " + it
             Log.d("AndroidRuntime", it)
+            if (lang == it)
+                lang = prefs.getString("fallback", "en")
+            tf1.endIconMode = TextInputLayout.END_ICON_CUSTOM
+            tf1.endIconDrawable = draw
+
+            (draw as? Animatable)?.start()
             translateText(txt, if (revers) it else lang, this) {
                 val edi = if (revers) ed else ed1
                 edi.tag = "n"
+                tf1.endIconDrawable = null
                 if (it.contains("to resolve host")) {
                     edi.setText(getString(R.string.no_internet))
                 } else if (it.contains("www2.deepl.com") || it.contains("Value <!DOCTYPE") || it.contains(
@@ -145,12 +166,11 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     edi.setText(it)
                 }
                 edi.tag = null
+                val a = getString(R.string.trans_text) + " · " + lang
+                if (findViewById<TextInputLayout>(R.id.textField1).hint != a) {
+                    findViewById<TextInputLayout>(R.id.textField1).hint = a
+                }
             }
-        }
-
-        val a = getString(R.string.trans_text) + " · " + lang
-        if (findViewById<TextInputLayout>(R.id.textField1).hint != a) {
-            findViewById<TextInputLayout>(R.id.textField1).hint = a
         }
     }
 
@@ -325,4 +345,16 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }
     }
+
+    private fun getProgressBarDrawable(): Drawable {
+        val value = TypedValue()
+        theme.resolveAttribute(android.R.attr.progressBarStyleSmall, value, false)
+        val progressBarStyle = value.data
+        val attributes = intArrayOf(android.R.attr.indeterminateDrawable)
+        val array = obtainStyledAttributes(progressBarStyle, attributes)
+        val drawable = array.getDrawableOrThrow(0)
+        array.recycle()
+        return drawable
+    }
+
 }

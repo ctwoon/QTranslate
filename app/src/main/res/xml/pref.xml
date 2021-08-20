@@ -10,6 +10,14 @@
             android:key="native"
             android:summary="@string/native_sum"
             android:title="@string/native_lang" />
+        <ListPreference
+            android:defaultValue="en"
+            android:entries="@array/entry_values"
+            android:entryValues="@array/entry_values"
+            android:icon="@drawable/ic_outline_question_answer_24"
+            android:key="fallback"
+            android:summary="@string/fallback_sum"
+            android:title="@string/fallback_lang" />
         <!--        <CheckBoxPreference-->
         <!--            android:defaultValue="false"-->
         <!--            android:icon="@drawable/ic_baseline_security_24"-->

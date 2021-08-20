@@ -19,4 +19,6 @@
     <string name="speech_to_text">Speech to text</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="download">Download</string>
+    <string name="fallback_lang">Fallback language</string>
+    <string name="fallback_sum">Will be used if input text language is same as target language</string>
 </resources>
