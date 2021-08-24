@@ -164,8 +164,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
                 edi.tag = null
                 val a = getString(R.string.trans_text) + " · " + lang
-                if (findViewById<TextInputLayout>(R.id.textField1).hint != a) {
-                    findViewById<TextInputLayout>(R.id.textField1).hint = a
+                if (tf1.hint != a) {
+                    tf1.hint = a
                 }
             }
         }
@@ -241,7 +241,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         var mm = 0
 
-        val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt", "pl", "cz")
+        val listItems = arrayOf("en", "ru", "fr", "de", "it", "zh", "ja", "pt", "pl", "csa")
 
         val edi = findViewById<EditText>(R.id.ed)
 
